@@ -1,0 +1,1433 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz Emergencias Pediátricas</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .container {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    padding: 36px;
+    max-width: 780px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 28px;
+  }
+
+  .header-logo {
+    display: block;
+    margin: 0 auto 14px;
+    max-height: 60px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .header h1 {
+    color: #e2e8f0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+  }
+
+  .header p {
+    color: #94a3b8;
+    font-size: 0.85rem;
+  }
+
+  .progress-bar-wrap {
+    background: rgba(255,255,255,0.1);
+    border-radius: 50px;
+    height: 8px;
+    margin-bottom: 6px;
+    overflow: hidden;
+  }
+
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #6366f1, #a78bfa);
+    border-radius: 50px;
+    transition: width 0.4s ease;
+  }
+
+  .progress-text {
+    display: flex;
+    justify-content: space-between;
+    color: #94a3b8;
+    font-size: 0.78rem;
+    margin-bottom: 22px;
+  }
+
+  .topic-badge {
+    display: inline-block;
+    background: rgba(99,102,241,0.25);
+    color: #a5b4fc;
+    border: 1px solid rgba(99,102,241,0.4);
+    border-radius: 50px;
+    padding: 4px 14px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .question-text {
+    color: #e2e8f0;
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    min-height: 56px;
+  }
+
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .option-btn {
+    background: rgba(255,255,255,0.06);
+    border: 2px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    padding: 14px 18px;
+    text-align: left;
+    color: #cbd5e1;
+    font-size: 0.97rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .option-btn:hover:not(:disabled) {
+    background: rgba(99,102,241,0.18);
+    border-color: rgba(99,102,241,0.5);
+    color: #e2e8f0;
+    transform: translateX(4px);
+  }
+
+  .option-label {
+    background: rgba(255,255,255,0.1);
+    border-radius: 8px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+    transition: all 0.2s;
+  }
+
+  .option-btn.correct {
+    background: rgba(34,197,94,0.2);
+    border-color: #22c55e;
+    color: #86efac;
+  }
+
+  .option-btn.correct .option-label {
+    background: #22c55e;
+    color: #fff;
+  }
+
+  .option-btn.wrong {
+    background: rgba(239,68,68,0.2);
+    border-color: #ef4444;
+    color: #fca5a5;
+  }
+
+  .option-btn.wrong .option-label {
+    background: #ef4444;
+    color: #fff;
+  }
+
+  .option-btn:disabled {
+    cursor: default;
+  }
+
+  .feedback-box {
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin-bottom: 22px;
+    font-size: 0.93rem;
+    font-weight: 500;
+    display: none;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .feedback-box.show { display: flex; }
+
+  .feedback-box.correct {
+    background: rgba(34,197,94,0.15);
+    border: 1px solid rgba(34,197,94,0.35);
+    color: #86efac;
+  }
+
+  .feedback-box.wrong {
+    background: rgba(239,68,68,0.15);
+    border: 1px solid rgba(239,68,68,0.35);
+    color: #fca5a5;
+  }
+
+  .feedback-icon { font-size: 1.2rem; flex-shrink: 0; }
+
+  .feedback-text { line-height: 1.5; }
+
+  .nav-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .btn {
+    border: none;
+    border-radius: 10px;
+    padding: 12px 24px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn-secondary {
+    background: rgba(255,255,255,0.08);
+    color: #94a3b8;
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+
+  .btn-secondary:hover:not(:disabled) {
+    background: rgba(255,255,255,0.14);
+    color: #cbd5e1;
+  }
+
+  .btn-secondary:disabled { opacity: 0.35; cursor: default; }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(99,102,241,0.35);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(99,102,241,0.5);
+  }
+
+  .score-chip {
+    background: rgba(99,102,241,0.2);
+    border: 1px solid rgba(99,102,241,0.35);
+    border-radius: 50px;
+    color: #a5b4fc;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 6px 16px;
+  }
+
+  /* Results screen */
+  .results {
+    text-align: center;
+    display: none;
+  }
+
+  .results.show { display: block; }
+
+  .results-score {
+    font-size: 5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #6366f1, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 16px 0 8px;
+  }
+
+  .results-label {
+    color: #94a3b8;
+    font-size: 1rem;
+    margin-bottom: 24px;
+  }
+
+  .results-detail {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+
+  .results-stat {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px;
+    padding: 16px 24px;
+    min-width: 130px;
+  }
+
+  .results-stat-num {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #e2e8f0;
+  }
+
+  .results-stat-num.green { color: #4ade80; }
+  .results-stat-num.red { color: #f87171; }
+
+  .results-stat-label {
+    color: #64748b;
+    font-size: 0.8rem;
+    margin-top: 4px;
+  }
+
+  .results h2 {
+    color: #e2e8f0;
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+  }
+
+  .quiz-area { display: block; }
+  .quiz-area.hide { display: none; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Quiz Area -->
+  <div class="quiz-area" id="quizArea">
+    <div class="header">
+      <img src="DOCYAPRO_BLANCO_eerxi3.png" alt="Logo" class="header-logo">
+      <h1>Emergencias Pediátricas</h1>
+      <p>Seleccioná la respuesta correcta</p>
+      <p style="margin-top:8px; color:#f9a8d4; font-size:0.82rem; letter-spacing:0.3px;">con amor, Nahun ❤️</p>
+    </div>
+
+    <div class="progress-bar-wrap">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+    <div class="progress-text">
+      <span id="progressLabel">Pregunta 1 de 100</span>
+      <span id="scoreLabel">Puntaje: 0</span>
+    </div>
+
+    <div class="topic-badge" id="topicBadge">Tema</div>
+    <div class="question-text" id="questionText"></div>
+
+    <div class="options" id="optionsContainer"></div>
+
+    <div class="feedback-box" id="feedbackBox">
+      <span class="feedback-icon" id="feedbackIcon"></span>
+      <span class="feedback-text" id="feedbackText"></span>
+    </div>
+
+    <div class="nav-row">
+      <button class="btn btn-secondary" id="prevBtn" onclick="prevQuestion()">← Anterior</button>
+      <span class="score-chip" id="scoreChip">0 / 0</span>
+      <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()">Siguiente →</button>
+    </div>
+  </div>
+
+  <!-- Results Screen -->
+  <div class="results" id="resultsScreen">
+    <h2>Resultado Final</h2>
+    <div class="results-score" id="resultsPct"></div>
+    <div class="results-label" id="resultsMsg"></div>
+    <div class="results-detail">
+      <div class="results-stat">
+        <div class="results-stat-num green" id="rCorrect"></div>
+        <div class="results-stat-label">Correctas</div>
+      </div>
+      <div class="results-stat">
+        <div class="results-stat-num red" id="rWrong"></div>
+        <div class="results-stat-label">Incorrectas</div>
+      </div>
+      <div class="results-stat">
+        <div class="results-stat-num" id="rTotal" style="color:#a5b4fc"></div>
+        <div class="results-stat-label">Total</div>
+      </div>
+    </div>
+    <button class="btn btn-primary" onclick="restartQuiz()" style="margin:0 auto;display:block;padding:14px 40px;">Reiniciar Quiz</button>
+  </div>
+
+</div>
+
+<script>
+const questions = [
+  // ── TEC ──────────────────────────────────────────────────────────────
+  {
+    topic: "TEC",
+    q: "¿Cuál es la clasificación de TEC leve según la Escala de Glasgow (GCS)?",
+    options: ["3 – 8", "9 – 12", "13 – 15", "6 – 9"],
+    correct: 2
+  },
+  {
+    topic: "TEC",
+    q: "La tríada de Cushing en hipertensión endocraneana incluye:",
+    options: [
+      "Hipotensión, taquicardia, bradipnea",
+      "Hipertensión, bradicardia, bradipnea/irregularidad respiratoria",
+      "Hipotensión, bradicardia, taquipnea",
+      "Hipertensión, taquicardia, apnea"
+    ],
+    correct: 1
+  },
+  {
+    topic: "TEC",
+    q: "La primera causa de muerte en niños mayores de 1 año en países desarrollados es:",
+    options: ["Sepsis", "Cáncer", "Traumatismo", "Cardiopatías congénitas"],
+    correct: 2
+  },
+  {
+    topic: "TEC",
+    q: "En TEC grave, el objetivo de PaCO₂ recomendado (normocapnia) es:",
+    options: ["25 – 30 mmHg", "35 – 40 mmHg", "45 – 50 mmHg", "55 – 60 mmHg"],
+    correct: 1
+  },
+  {
+    topic: "TEC",
+    q: "El tipo de hematoma intracraneal más frecuente en niños menores de 2 años con TEC no accidental es:",
+    options: ["Epidural", "Subdural", "Subaracnoideo", "Intraparenquimatoso"],
+    correct: 1
+  },
+  {
+    topic: "TEC",
+    q: "El 'intervalo lúcido' clásicamente se asocia al hematoma:",
+    options: ["Subdural agudo", "Epidural (arteria meníngea media)", "Subaracnoideo", "Intraparenquimatoso"],
+    correct: 1
+  },
+  {
+    topic: "TEC",
+    q: "En TEC moderado-grave, la maniobra para estabilizar la columna cervical durante la apertura de la vía aérea es:",
+    options: [
+      "Hiperextensión del cuello",
+      "Tracción manual en línea de la columna cervical",
+      "Rotación lateral de la cabeza",
+      "Flexión del cuello"
+    ],
+    correct: 1
+  },
+  // ── CONVULSIONES Y STATUS ─────────────────────────────────────────────
+  {
+    topic: "Convulsiones",
+    q: "El status epilepticus se define clásicamente como convulsión continua o sin recuperación de conciencia durante más de:",
+    options: ["5 minutos", "15 minutos", "30 minutos", "60 minutos"],
+    correct: 2
+  },
+  {
+    topic: "Convulsiones",
+    q: "La primera línea de tratamiento del status epilepticus en urgencias (sin acceso venoso) es:",
+    options: [
+      "Fenitoína IV",
+      "Diazepam rectal o midazolam intranasal/bucal",
+      "Fenobarbital IM",
+      "Levetiracetam IV"
+    ],
+    correct: 1
+  },
+  {
+    topic: "Convulsiones",
+    q: "Dosis habitual de diazepam rectal en status epilepticus:",
+    options: ["0.1 mg/kg", "0.3 mg/kg", "0.5 mg/kg", "1 mg/kg"],
+    correct: 2
+  },
+  {
+    topic: "Convulsiones",
+    q: "La causa más frecuente de status epilepticus en niños menores de 5 años es:",
+    options: ["Meningitis bacteriana", "Crisis febril", "Epilepsia conocida", "Traumatismo craneal"],
+    correct: 1
+  },
+  {
+    topic: "Convulsiones",
+    q: "En status epilepticus refractario (que no cede con 2 dosis de benzodiacepinas), la siguiente droga de elección es:",
+    options: [
+      "Tercera dosis de diazepam",
+      "Fenitoína o fosfenitoína IV",
+      "Paracetamol IV",
+      "Adrenalina"
+    ],
+    correct: 1
+  },
+  {
+    topic: "Convulsiones",
+    q: "La crisis febril simple se diferencia de la convulsión febril compleja principalmente porque:",
+    options: [
+      "Dura más de 15 minutos",
+      "Es generalizada, dura <15 min y no se repite en 24 h",
+      "Es focal",
+      "Tiene déficit postictal prolongado"
+    ],
+    correct: 1
+  },
+  // ── QUEMADURAS ────────────────────────────────────────────────────────
+  {
+    topic: "Quemaduras",
+    q: "Una quemadura de segundo grado superficial (dérmico superficial) se caracteriza por:",
+    options: [
+      "Solo eritema sin ampollas ni dolor",
+      "Ampollas, base rosada húmeda y dolor intenso",
+      "Necrosis completa sin dolor",
+      "Carbonización y anestesia"
+    ],
+    correct: 1
+  },
+  {
+    topic: "Quemaduras",
+    q: "La fórmula de Parkland para reposición de líquidos en las primeras 24 h es:",
+    options: [
+      "2 ml × kg × % SCQ",
+      "3 ml × kg × % SCQ",
+      "4 ml × kg × % SCQ",
+      "6 ml × kg × % SCQ"
+    ],
+    correct: 2
+  },
+  {
+    topic: "Quemaduras",
+    q: "En pediatría, la regla de los 9 se modifica principalmente porque:",
+    options: [
+      "El tronco es más pequeño",
+      "La cabeza tiene mayor superficie corporal relativa que en adultos",
+      "Las extremidades inferiores son más grandes",
+      "El peso cambia la superficie total"
+    ],
+    correct: 1
+  },
+  {
+    topic: "Quemaduras",
+    q: "¿Qué porcentaje de superficie corporal quemada en un niño es criterio de hospitalización?",
+    options: [">5%", ">10%", ">20%", ">30%"],
+    correct: 1
+  },
+  {
+    topic: "Quemaduras",
+    q: "En quemaduras eléctricas de alto voltaje, la complicación sistémica más temida es:",
+    options: [
+      "Hipotermia severa",
+      "Rabdomiólisis con insuficiencia renal aguda",
+      "Infección por Pseudomonas",
+      "Cicatriz hipertrófica"
+    ],
+    correct: 1
+  },
+  {
+    topic: "Quemaduras",
+    q: "El fluido de elección para la reposición inicial en quemaduras graves es:",
+    options: ["Dextrosa 5%", "Solución fisiológica 0.9%", "Ringer lactato", "Albúmina al 20%"],
+    correct: 2
+  },
+  {
+    topic: "Quemaduras",
+    q: "La quemadura de tercer grado se caracteriza por:",
+    options: [
+      "Eritema sin ampollas",
+      "Ampollas dolorosas",
+      "Destrucción total del espesor dérmico, aspecto coriáceo, insensible al dolor",
+      "Solo compromiso de la epidermis"
+    ],
+    correct: 2
+  },
+  // ── SEPSIS Y SHOCK SÉPTICO ─────────────────────────────────────────────
+  {
+    topic: "Sepsis",
+    q: "Según Sepsis-3, la sepsis se define como:",
+    options: [
+      "Fiebre + leucocitosis + foco infeccioso",
+      "Infección con disfunción orgánica que amenaza la vida",
+      "SRIS sin foco identificable",
+      "Hipotensión + taquicardia de causa infecciosa"
+    ],
+    correct: 1
+  },
+  {
+    topic: "Sepsis",
+    q: "El shock séptico pediátrico se caracteriza por:",
+    options: [
+      "Solo fiebre alta",
+      "Sepsis con disfunción cardiovascular persistente a pesar de resucitación adecuada",
+      "Taquicardia aislada",
+      "Hipotermia sin foco"
+    ],
+    correct: 1
+  },
+  {
+    topic: "Sepsis",
+    q: "El primer bolo de volumen recomendado en shock séptico pediátrico es:",
+    options: ["5 ml/kg", "10 ml/kg", "20 ml/kg en 10-20 min", "40 ml/kg"],
+    correct: 2
+  },
+  {
+    topic: "Sepsis",
+    q: "El lactato sérico se considera elevado (hiperlactatemia) cuando supera:",
+    options: ["1 mmol/L", "2 mmol/L", "4 mmol/L", "6 mmol/L"],
+    correct: 1
+  },
+  {
+    topic: "Sepsis",
+    q: "El vasopresor de primera elección en shock séptico pediátrico con presentación de 'shock frío' (extremidades frías, llenado capilar lento) es:",
+    options: ["Noradrenalina", "Adrenalina", "Vasopresina", "Dobutamina"],
+    correct: 1
+  },
+  {
+    topic: "Sepsis",
+    q: "El antibiótico empírico de primera línea en sepsis sin foco en pediatría (fuera de periodo neonatal) generalmente incluye:",
+    options: [
+      "Amoxicilina oral",
+      "Cefalosporina de 3.ª generación (ceftriaxona/cefotaxima) IV",
+      "Metronidazol IV",
+      "Vancomicina sola"
+    ],
+    correct: 1
+  },
+  {
+    topic: "Sepsis",
+    q: "La 'hora de oro' en sepsis hace referencia a:",
+    options: [
+      "Realizar una TC en la primera hora",
+      "Iniciar antibióticos + resucitación con fluidos en la primera hora",
+      "Trasladar al paciente en la primera hora",
+      "Tomar laboratorio en la primera hora"
+    ],
+    correct: 1
+  },
+  // ── SÍNCOPE ───────────────────────────────────────────────────────────
+  {
+    topic: "Síncope",
+    q: "La causa más frecuente de síncope en niños y adolescentes es:",
+    options: [
+      "Cardíaco (arritmia)",
+      "Neurológico (epilepsia)",
+      "Vasovagal / neurocardiogénico",
+      "Metabólico (hipoglucemia)"
+    ],
+    correct: 2
+  },
+  {
+    topic: "Síncope",
+    q: "El síncope vasovagal se precipita típicamente por:",
+    options: [
+      "Ejercicio intenso",
+      "Dolor, calor, bipedestación prolongada o visión de sangre",
+      "Inmersión en agua fría",
+      "Ingesta de alimentos"
+    ],
+    correct: 1
+  },
+  {
+    topic: "Síncope",
+    q: "El síncope durante el ejercicio en un niño debe hacer sospechar principalmente:",
+    options: [
+      "Síncope vasovagal",
+      "Hipoglucemia",
+      "Origen cardíaco (miocardiopatía, arritmia)",
+      "Crisis de ansiedad"
+    ],
+    correct: 2
+  },
+  {
+    topic: "Síncope",
+    q: "¿Qué hallazgo en el ECG es más sugestivo de síncope de origen cardíaco?",
+    options: [
+      "Eje normal",
+      "QTc prolongado >480 ms",
+      "Bradicardia sinusal leve",
+      "Repolarización precoz aislada"
+    ],
+    correct: 1
+  },
+  {
+    topic: "Síncope",
+    q: "El tilt test (prueba de mesa basculante) se utiliza para diagnosticar:",
+    options: [
+      "Síncope arrítmico",
+      "Epilepsia",
+      "Síncope vasovagal / disautonomía",
+      "Hipoglucemia reactiva"
+    ],
+    correct: 2
+  },
+  // ── DOLOR TORÁCICO ────────────────────────────────────────────────────
+  {
+    topic: "Dolor Torácico",
+    q: "La causa más frecuente de dolor torácico en pediatría es:",
+    options: ["Cardíaca", "Musculoesquelética / costocondral", "Pulmonar", "Gastrointestinal"],
+    correct: 1
+  },
+  {
+    topic: "Dolor Torácico",
+    q: "El dolor torácico de origen cardíaco en niños se asocia principalmente a:",
+    options: [
+      "Tos",
+      "Esfuerzo físico",
+      "Ingesta de alimentos",
+      "Presión directa sobre el esternón"
+    ],
+    correct: 1
+  },
+  {
+    topic: "Dolor Torácico",
+    q: "En pericarditis aguda, el ECG clásicamente muestra:",
+    options: [
+      "Elevación localizada del ST con imagen especular",
+      "Elevación difusa del ST cóncavo ('en silla de montar') + depresión PR",
+      "Depresión difusa del ST",
+      "Bloqueo aurículo-ventricular completo"
+    ],
+    correct: 1
+  },
+  {
+    topic: "Dolor Torácico",
+    q: "El tratamiento de primera línea de la pericarditis aguda idiopática es:",
+    options: [
+      "Antibióticos",
+      "Corticoides a dosis altas",
+      "AINE + colchicina",
+      "Anticoagulación sistémica"
+    ],
+    correct: 2
+  },
+  {
+    topic: "Dolor Torácico",
+    q: "El signo de Hamman (crujido mediastínico sincrónico con el latido) sugiere:",
+    options: [
+      "Neumotórax espontáneo",
+      "Neumomediastino",
+      "Hemotórax",
+      "Miocarditis"
+    ],
+    correct: 1
+  },
+  // ── MORDEDURAS ────────────────────────────────────────────────────────
+  {
+    topic: "Mordeduras",
+    q: "La mordedura de animal más frecuente en pediatría es:",
+    options: ["Gato", "Perro", "Humano", "Serpiente"],
+    correct: 1
+  },
+  {
+    topic: "Mordeduras",
+    q: "La principal bacteria responsable de infección en mordeduras de gato es:",
+    options: [
+      "Staphylococcus aureus",
+      "Pasteurella multocida",
+      "Streptococcus pyogenes",
+      "Escherichia coli"
+    ],
+    correct: 1
+  },
+  {
+    topic: "Mordeduras",
+    q: "El antibiótico de elección para profilaxis/tratamiento de mordeduras animales es:",
+    options: [
+      "Cefalexina",
+      "Amoxicilina-clavulánico",
+      "Ciprofloxacina",
+      "Metronidazol"
+    ],
+    correct: 1
+  },
+  {
+    topic: "Mordeduras",
+    q: "La mordedura humana tiene alto riesgo de infección, especialmente por:",
+    options: [
+      "Salmonella",
+      "Eikenella corrodens",
+      "Bordetella pertussis",
+      "Haemophilus influenzae"
+    ],
+    correct: 1
+  },
+  {
+    topic: "Mordeduras",
+    q: "La profilaxis antirrábica post-exposición siempre está indicada ante mordedura de:",
+    options: [
+      "Perro doméstico vacunado, observado 10 días sin síntomas",
+      "Murciélago, zorro, coyote u otro mamífero silvestre",
+      "Cobayo (cuyo) doméstico",
+      "Ave de corral"
+    ],
+    correct: 1
+  },
+  {
+    topic: "Mordeduras",
+    q: "En mordeduras de serpiente (ofidismo), el tratamiento específico es:",
+    options: [
+      "Torniquete en el miembro afectado",
+      "Antiveneno (suero antiofídico) específico IV",
+      "Incisión y succión del veneno",
+      "Corticoides IM"
+    ],
+    correct: 1
+  },
+  // ── INTOXICACIONES PEDIÁTRICAS ─────────────────────────────────────────
+  {
+    topic: "Intoxicaciones",
+    q: "El antídoto específico del paracetamol (acetaminofén) es:",
+    options: [
+      "Flumazenil",
+      "Naloxona",
+      "N-acetilcisteína",
+      "Atropina"
+    ],
+    correct: 2
+  },
+  {
+    topic: "Intoxicaciones",
+    q: "La naloxona es el antídoto de:",
+    options: ["Benzodiazepinas", "Opioides", "Organofosforados", "Antidepresivos tricíclicos"],
+    correct: 1
+  },
+  {
+    topic: "Intoxicaciones",
+    q: "El flumazenil es el antídoto de:",
+    options: ["Opiáceos", "Alcohol etílico", "Benzodiazepinas", "Barbitúricos"],
+    correct: 2
+  },
+  {
+    topic: "Intoxicaciones",
+    q: "El síndrome muscarínico en intoxicación por organofosforados se caracteriza por:",
+    options: [
+      "Midriasis, taquicardia, sequedad de mucosas",
+      "Miosis, bradicardia, sialorrea, broncospasmo",
+      "Convulsiones, hipertermia, rigidez",
+      "Cianosis, apnea, paro cardíaco"
+    ],
+    correct: 1
+  },
+  {
+    topic: "Intoxicaciones",
+    q: "El tratamiento de la intoxicación por organofosforados incluye:",
+    options: [
+      "Naloxona IV",
+      "Atropina + pralidoxima (obidoxima)",
+      "N-acetilcisteína oral",
+      "Bicarbonato de sodio IV"
+    ],
+    correct: 1
+  },
+  {
+    topic: "Intoxicaciones",
+    q: "En intoxicación por antidepresivos tricíclicos, el hallazgo ECG más característico es:",
+    options: [
+      "QT largo con ondas U",
+      "Ensanchamiento del QRS >100 ms",
+      "Depresión del ST difusa",
+      "Bloqueo auriculoventricular de 1.er grado"
+    ],
+    correct: 1
+  },
+  {
+    topic: "Intoxicaciones",
+    q: "El bicarbonato de sodio IV en intoxicación por tricíclicos se usa para:",
+    options: [
+      "Alcalinizar la orina y aumentar excreción",
+      "Revertir la toxicidad cardíaca (estrechar el QRS) al alcalinizar el plasma",
+      "Neutralizar el tóxico directamente",
+      "Tratar la hiperkalemia asociada"
+    ],
+    correct: 1
+  },
+  {
+    topic: "Intoxicaciones",
+    q: "La complicación más grave de la intoxicación aguda por paracetamol es:",
+    options: [
+      "Insuficiencia renal aguda",
+      "Falla hepática fulminante",
+      "Arritmia cardíaca",
+      "Depresión respiratoria"
+    ],
+    correct: 1
+  },
+  {
+    topic: "Intoxicaciones",
+    q: "El carbón activado está CONTRAINDICADO en intoxicación por:",
+    options: [
+      "Paracetamol",
+      "Ácido acetilsalicílico",
+      "Cáusticos (ácidos y álcalis fuertes)",
+      "Antidepresivos tricíclicos"
+    ],
+    correct: 2
+  },
+  {
+    topic: "Intoxicaciones",
+    q: "En intoxicación grave por hierro, el quelante específico es:",
+    options: ["Deferoxamina", "Dimercaprol (BAL)", "EDTA cálcico", "Penicilamina"],
+    correct: 0
+  },
+  // ── MEDIDAS DE AISLAMIENTO ─────────────────────────────────────────────
+  {
+    topic: "Aislamiento",
+    q: "El aislamiento de CONTACTO se indica en infecciones por:",
+    options: [
+      "Mycobacterium tuberculosis (TBC pulmonar activa)",
+      "S. aureus meticilino-resistente (SAMR) / enterobacterias MDR",
+      "Virus del sarampión",
+      "Virus de la varicela"
+    ],
+    correct: 1
+  },
+  {
+    topic: "Aislamiento",
+    q: "La tuberculosis pulmonar activa (bacilífera) requiere aislamiento:",
+    options: ["De contacto", "Por gotas (droplet)", "Aéreo (partículas <5 µm)", "Protector / inverso"],
+    correct: 2
+  },
+  {
+    topic: "Aislamiento",
+    q: "El equipo de protección personal para aislamiento AÉREO incluye obligatoriamente:",
+    options: [
+      "Guantes y bata",
+      "Mascarilla quirúrgica simple",
+      "Respirador N95 (FFP2)",
+      "Solo lavado de manos"
+    ],
+    correct: 2
+  },
+  {
+    topic: "Aislamiento",
+    q: "La varicela requiere tipo de aislamiento:",
+    options: [
+      "Solo de contacto",
+      "Aéreo + contacto (combinado)",
+      "Solo por gotas",
+      "No requiere aislamiento en inmunocompetentes"
+    ],
+    correct: 1
+  },
+  {
+    topic: "Aislamiento",
+    q: "El aislamiento por varicela puede levantarse cuando:",
+    options: [
+      "Se inicia tratamiento con aciclovir",
+      "Todas las lesiones están en fase de costra",
+      "Han pasado 48 h de inicio del exantema",
+      "La fiebre desaparece"
+    ],
+    correct: 1
+  },
+  {
+    topic: "Aislamiento",
+    q: "El sarampión requiere aislamiento:",
+    options: ["De contacto", "Por gotas", "Aéreo", "No requiere en vacunados"],
+    correct: 2
+  },
+  {
+    topic: "Aislamiento",
+    q: "La distancia mínima a la que se considera que actúan las gotas respiratorias (droplets) es:",
+    options: ["30 cm", "1 metro", "3 metros", "5 metros"],
+    correct: 1
+  },
+  {
+    topic: "Aislamiento",
+    q: "El aislamiento PROTECTOR o INVERSO está indicado en:",
+    options: [
+      "Infecciones altamente contagiosas por vía aérea",
+      "Pacientes inmunocomprometidos graves (para protegerlos del entorno)",
+      "Tuberculosis pulmonar",
+      "Diarrea por Clostridium difficile"
+    ],
+    correct: 1
+  },
+  {
+    topic: "Aislamiento",
+    q: "Las precauciones ESTÁNDAR deben aplicarse:",
+    options: [
+      "Solo en pacientes con diagnóstico confirmado de infección",
+      "Con todos los pacientes, independientemente del diagnóstico",
+      "Solo en UCI",
+      "Solo ante sangre visible"
+    ],
+    correct: 1
+  },
+  {
+    topic: "Aislamiento",
+    q: "El virus sincicial respiratorio (VSR) en lactantes hospitalizados requiere aislamiento:",
+    options: [
+      "Aéreo",
+      "Gotas + contacto",
+      "Solo contacto",
+      "No requiere aislamiento"
+    ],
+    correct: 1
+  },
+  // ── ESCROTO AGUDO ─────────────────────────────────────────────────────
+  {
+    topic: "Escroto Agudo",
+    q: "La causa más frecuente de escroto agudo en el adolescente es:",
+    options: ["Epididimitis", "Torsión testicular", "Orquitis urliana", "Hidrocele comunicante"],
+    correct: 1
+  },
+  {
+    topic: "Escroto Agudo",
+    q: "El signo de Prehn positivo (alivio del dolor al elevar el testículo) sugiere:",
+    options: [
+      "Torsión testicular",
+      "Epididimitis / epididimo-orquitis",
+      "Torsión del hidátide",
+      "Hernia inguinal incarcerada"
+    ],
+    correct: 1
+  },
+  {
+    topic: "Escroto Agudo",
+    q: "La ventana de tiempo en la que se puede salvar el testículo con mayor probabilidad (>90%) en torsión testicular es:",
+    options: ["1 hora", "4 horas", "6 horas", "12 horas"],
+    correct: 2
+  },
+  {
+    topic: "Escroto Agudo",
+    q: "En torsión testicular, el reflejo cremastérico generalmente está:",
+    options: ["Aumentado", "Normal", "Ausente", "Solo presente en lado contralateral"],
+    correct: 2
+  },
+  {
+    topic: "Escroto Agudo",
+    q: "La torsión del apéndice testicular (hidátide de Morgagni) es más frecuente en:",
+    options: [
+      "Neonatos (0-1 mes)",
+      "Lactantes (1-12 meses)",
+      "Prepúberes (7-14 años)",
+      "Adultos jóvenes (>18 años)"
+    ],
+    correct: 2
+  },
+  {
+    topic: "Escroto Agudo",
+    q: "El 'signo del punto azul' en la piel escrotal es patognomónico de:",
+    options: [
+      "Torsión testicular",
+      "Torsión del apéndice testicular (hidátide)",
+      "Epididimitis bacteriana",
+      "Hidrocele a tensión"
+    ],
+    correct: 1
+  },
+  {
+    topic: "Escroto Agudo",
+    q: "Ante alta sospecha clínica de torsión testicular, la conducta correcta es:",
+    options: [
+      "Esperar el resultado de la ecografía Doppler para decidir",
+      "Exploración quirúrgica urgente sin demora",
+      "Administrar antibióticos y observar 24 h",
+      "Realizar urocultivo primero"
+    ],
+    correct: 1
+  },
+  // ── REANIMACIÓN CARDIOPULMONAR ─────────────────────────────────────────
+  {
+    topic: "RCP",
+    q: "La relación compresión : ventilación en RCP pediátrica con DOS reanimadores es:",
+    options: ["30:2", "15:2", "5:1", "10:2"],
+    correct: 1
+  },
+  {
+    topic: "RCP",
+    q: "La frecuencia de compresiones torácicas en RCP (adultos y niños) recomendada por las guías AHA/ERC 2020 es:",
+    options: ["60-80 / min", "80-100 / min", "100-120 / min", "120-140 / min"],
+    correct: 2
+  },
+  {
+    topic: "RCP",
+    q: "La dosis de adrenalina en paro cardiorrespiratorio pediátrico IV/IO es:",
+    options: ["0.001 mg/kg", "0.01 mg/kg", "0.1 mg/kg", "1 mg/kg"],
+    correct: 1
+  },
+  {
+    topic: "RCP",
+    q: "En fibrilación ventricular pediátrica, la dosis de desfibrilación es:",
+    options: ["1 J/kg", "2 J/kg (inicial)", "4 J/kg", "10 J/kg"],
+    correct: 1
+  },
+  // ── ANAFILAXIA ────────────────────────────────────────────────────────
+  {
+    topic: "Anafilaxia",
+    q: "El tratamiento de primera línea en anafilaxia es:",
+    options: [
+      "Antihistamínico H1 IV",
+      "Corticoide IV",
+      "Adrenalina IM (vasto externo del muslo)",
+      "Salbutamol nebulizado"
+    ],
+    correct: 2
+  },
+  {
+    topic: "Anafilaxia",
+    q: "La dosis de adrenalina IM en anafilaxia pediátrica es:",
+    options: [
+      "0.001 mg/kg",
+      "0.01 mg/kg (máx 0.5 mg)",
+      "0.1 mg/kg",
+      "0.5 mg fija independiente del peso"
+    ],
+    correct: 1
+  },
+  // ── VÍA AÉREA / OBSTRUCCIÓN ────────────────────────────────────────────
+  {
+    topic: "Vía Aérea",
+    q: "En croup (laringotraqueobronquitis viral), el tratamiento de elección en crisis moderada-grave es:",
+    options: [
+      "Antibióticos IM + fisioterapia",
+      "Adrenalina racémica / L-adrenalina nebulizada + dexametasona oral/IM",
+      "Antitusivos + antihistamínicos",
+      "Broncoscopia urgente"
+    ],
+    correct: 1
+  },
+  {
+    topic: "Vía Aérea",
+    q: "La epiglotitis aguda se asocia clásicamente con:",
+    options: [
+      "Coxsackievirus",
+      "Haemophilus influenzae tipo b",
+      "Streptococcus pneumoniae",
+      "Staphylococcus aureus"
+    ],
+    correct: 1
+  },
+  {
+    topic: "Vía Aérea",
+    q: "El cuerpo extraño en vía aérea en lactante se maneja con:",
+    options: [
+      "Heimlich abdominal",
+      "5 golpes en la espalda + 5 compresiones en el tórax",
+      "Laringoscopia inmediata sin maniobras",
+      "Barrido a ciegas en la boca"
+    ],
+    correct: 1
+  },
+  // ── ASMA ──────────────────────────────────────────────────────────────
+  {
+    topic: "Asma",
+    q: "La crisis asmática grave se trata con:",
+    options: [
+      "Solo broncodilatadores",
+      "Broncodilatadores inhalados + corticoides sistémicos + bromuro de ipratropio",
+      "Solo corticoides sistémicos",
+      "Antibióticos de primera línea"
+    ],
+    correct: 1
+  },
+  {
+    topic: "Asma",
+    q: "El agente causal más frecuente de bronquiolitis en lactantes es:",
+    options: [
+      "Adenovirus",
+      "Virus Sincicial Respiratorio (VSR)",
+      "Influenza A",
+      "Rinovirus"
+    ],
+    correct: 1
+  },
+  // ── MENINGITIS ────────────────────────────────────────────────────────
+  {
+    topic: "Meningitis",
+    q: "La tríada clásica de meningitis bacteriana es:",
+    options: [
+      "Fiebre, cefalea, fotofobia",
+      "Fiebre, rigidez de nuca, alteración del sensorio",
+      "Vómitos, convulsiones, fiebre",
+      "Coma, hipotensión, bradicardia"
+    ],
+    correct: 1
+  },
+  {
+    topic: "Meningitis",
+    q: "El antibiótico de primera línea en meningitis bacteriana en niños >3 meses es:",
+    options: [
+      "Ampicilina + gentamicina",
+      "Ceftriaxona o cefotaxima IV",
+      "Vancomicina sola",
+      "Penicilina G"
+    ],
+    correct: 1
+  },
+  {
+    topic: "Meningitis",
+    q: "El uso de dexametasona como adyuvante en meningitis pediátrica tiene mayor evidencia de beneficio (reducción de hipoacusia) en:",
+    options: [
+      "Meningitis por N. meningitidis",
+      "Meningitis por H. influenzae tipo b",
+      "Meningitis viral",
+      "Meningitis neonatal"
+    ],
+    correct: 1
+  },
+  // ── DESHIDRATACIÓN / GASTROENTERITIS ──────────────────────────────────
+  {
+    topic: "Deshidratación",
+    q: "La deshidratación grave (>10% de peso) se repone inicialmente con:",
+    options: [
+      "Suero de rehidratación oral (SRO)",
+      "Bolo IV de 20 ml/kg de solución fisiológica o Ringer lactato",
+      "Goteo IV lento de 24 horas",
+      "Restricción hídrica"
+    ],
+    correct: 1
+  },
+  {
+    topic: "Deshidratación",
+    q: "El tipo de deshidratación más frecuente en niños con gastroenteritis es:",
+    options: [
+      "Hipotónica (Na <130 mEq/L)",
+      "Isotónica (Na 130-150 mEq/L)",
+      "Hipertónica (Na >150 mEq/L)",
+      "Hipercalémica"
+    ],
+    correct: 1
+  },
+  // ── CETOACIDOSIS DIABÉTICA ─────────────────────────────────────────────
+  {
+    topic: "Cetoacidosis",
+    q: "La complicación más temida del tratamiento de la cetoacidosis diabética pediátrica es:",
+    options: [
+      "Hipoglucemia iatrogénica",
+      "Edema cerebral",
+      "Hipocalemia severa",
+      "Acidosis metabólica persistente"
+    ],
+    correct: 1
+  },
+  {
+    topic: "Cetoacidosis",
+    q: "La reposición de fluidos en la cetoacidosis diabética debe realizarse de forma:",
+    options: [
+      "Rápida (en 1-2 h) para corregir la acidosis",
+      "Lenta (en 48 h) para reducir el riesgo de edema cerebral",
+      "En bolo de 40 ml/kg inicial",
+      "Solo con dextrosa"
+    ],
+    correct: 1
+  },
+  // ── HIPOGLUCEMIA ──────────────────────────────────────────────────────
+  {
+    topic: "Hipoglucemia",
+    q: "La dosis de glucosa IV para corregir hipoglucemia sintomática aguda en niños es:",
+    options: [
+      "0.1 g/kg (Dext 10%: 1 ml/kg)",
+      "0.25 g/kg (Dext 10%: 2.5 ml/kg)",
+      "0.5 g/kg",
+      "1 g/kg"
+    ],
+    correct: 1
+  },
+  // ── ABDOMEN AGUDO ─────────────────────────────────────────────────────
+  {
+    topic: "Abdomen Agudo",
+    q: "La causa más frecuente de obstrucción intestinal en lactantes de 3 a 12 meses es:",
+    options: [
+      "Hernia inguinal incarcerada",
+      "Invaginación intestinal",
+      "Vólvulo de sigmoides",
+      "Atresia intestinal"
+    ],
+    correct: 1
+  },
+  {
+    topic: "Abdomen Agudo",
+    q: "El tratamiento de primera línea de la invaginación intestinal sin signos de peritonitis es:",
+    options: [
+      "Cirugía de urgencia",
+      "Enema de reducción neumático o hidrostático guiado por imagen",
+      "Antibióticos IV + observación",
+      "Laparoscopía diagnóstica"
+    ],
+    correct: 1
+  },
+  // ── NEONATOLOGÍA / FIEBRE SIN FOCO ────────────────────────────────────
+  {
+    topic: "Neonatología",
+    q: "Ante un recién nacido (<28 días) con temperatura rectal ≥38 °C, la conducta correcta es:",
+    options: [
+      "Antitérmico y observación en domicilio",
+      "Hospitalización + hemocultivo + urocultivo + punción lumbar + antibióticos",
+      "Solo analítica de sangre en urgencias",
+      "Alta con control en 24-48 h"
+    ],
+    correct: 1
+  },
+  // ── CARDIOPATÍAS CONGÉNITAS ─────────────────────────────────────────────
+  {
+    topic: "Cardiopatías",
+    q: "La crisis hipercianótica ('tet spell') en tetralogía de Fallot se trata con:",
+    options: [
+      "Digoxina IV",
+      "Furosemida IV",
+      "Oxígeno + posición genupectoral + morfina + propranolol",
+      "Adrenalina en bolo IV"
+    ],
+    correct: 2
+  },
+  // ── TRAUMA ────────────────────────────────────────────────────────────
+  {
+    topic: "Trauma",
+    q: "En la evaluación primaria del politrauma pediátrico, la secuencia ABCDE comienza con:",
+    options: [
+      "B — Breathing (ventilación)",
+      "C — Circulation (circulación)",
+      "A — Airway con control cervical",
+      "D — Disability (neurológico)"
+    ],
+    correct: 2
+  },
+  {
+    topic: "Trauma",
+    q: "El fluido de resucitación de primera línea en shock hemorrágico pediátrico post-trauma es:",
+    options: [
+      "Dextrosa al 5%",
+      "Cristaloide isotónico (SF 0.9% o Ringer lactato) 10-20 ml/kg",
+      "Albúmina al 5%",
+      "Plasma fresco congelado como primer bolo"
+    ],
+    correct: 1
+  }
+];
+
+// ── State ──────────────────────────────────────────────────────────────────
+let current = 0;
+let score = 0;
+let answered = new Array(questions.length).fill(null); // index of chosen option
+
+function render() {
+  const q = questions[current];
+  const total = questions.length;
+
+  document.getElementById('progressBar').style.width = ((current + 1) / total * 100) + '%';
+  document.getElementById('progressLabel').textContent = `Pregunta ${current + 1} de ${total}`;
+
+  const correct = answered.filter((a, i) => a === questions[i].correct).length;
+  const attempted = answered.filter(a => a !== null).length;
+  document.getElementById('scoreLabel').textContent = `Correctas: ${correct}`;
+  document.getElementById('scoreChip').textContent = `${correct} / ${attempted}`;
+
+  document.getElementById('topicBadge').textContent = q.topic;
+  document.getElementById('questionText').textContent = `${current + 1}. ${q.q}`;
+
+  const labels = ['A', 'B', 'C', 'D'];
+  const cont = document.getElementById('optionsContainer');
+  cont.innerHTML = '';
+
+  q.options.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'option-btn';
+    btn.disabled = answered[current] !== null;
+
+    let extraClass = '';
+    if (answered[current] !== null) {
+      if (i === q.correct) extraClass = 'correct';
+      else if (i === answered[current]) extraClass = 'wrong';
+    }
+    if (extraClass) btn.classList.add(extraClass);
+
+    btn.innerHTML = `<span class="option-label">${labels[i]}</span><span>${opt}</span>`;
+    btn.onclick = () => selectOption(i);
+    cont.appendChild(btn);
+  });
+
+  // Feedback
+  const fb = document.getElementById('feedbackBox');
+  const fi = document.getElementById('feedbackIcon');
+  const ft = document.getElementById('feedbackText');
+  fb.className = 'feedback-box';
+
+  if (answered[current] !== null) {
+    if (answered[current] === q.correct) {
+      fb.classList.add('show', 'correct');
+      fi.textContent = '✓';
+      ft.textContent = '¡Correcto! Bien hecho.';
+    } else {
+      fb.classList.add('show', 'wrong');
+      fi.textContent = '✗';
+      ft.innerHTML = `Incorrecto. La respuesta correcta es: <strong>${labels[q.correct]}. ${q.options[q.correct]}</strong>`;
+    }
+  }
+
+  document.getElementById('prevBtn').disabled = current === 0;
+
+  const nextBtn = document.getElementById('nextBtn');
+  if (current === total - 1) {
+    nextBtn.textContent = 'Ver resultado';
+  } else {
+    nextBtn.textContent = 'Siguiente →';
+  }
+}
+
+function selectOption(i) {
+  if (answered[current] !== null) return;
+  answered[current] = i;
+  if (i === questions[current].correct) score++;
+  render();
+}
+
+function nextQuestion() {
+  if (current < questions.length - 1) {
+    current++;
+    render();
+  } else {
+    showResults();
+  }
+}
+
+function prevQuestion() {
+  if (current > 0) { current--; render(); }
+}
+
+function showResults() {
+  document.getElementById('quizArea').classList.add('hide');
+  const rs = document.getElementById('resultsScreen');
+  rs.classList.add('show');
+
+  const total = questions.length;
+  const correct = answered.filter((a, i) => a === questions[i].correct).length;
+  const wrong = answered.filter((a, i) => a !== null && a !== questions[i].correct).length;
+  const pct = Math.round(correct / total * 100);
+
+  document.getElementById('resultsPct').textContent = pct + '%';
+  document.getElementById('rCorrect').textContent = correct;
+  document.getElementById('rWrong').textContent = wrong;
+  document.getElementById('rTotal').textContent = total;
+
+  let msg = '';
+  if (pct >= 90) msg = '¡Excelente! Dominio sobresaliente del tema.';
+  else if (pct >= 75) msg = 'Muy bien. Conocimiento sólido.';
+  else if (pct >= 60) msg = 'Bien. Repasar los temas donde fallaste.';
+  else msg = 'Seguí estudiando. ¡Podés mejorar!';
+  document.getElementById('resultsMsg').textContent = msg;
+}
+
+function restartQuiz() {
+  current = 0;
+  score = 0;
+  answered = new Array(questions.length).fill(null);
+  document.getElementById('quizArea').classList.remove('hide');
+  document.getElementById('resultsScreen').classList.remove('show');
+  render();
+}
+
+// init
+render();
+</script>
+</body>
+</html>
