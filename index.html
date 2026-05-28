@@ -249,6 +249,42 @@
     padding: 6px 16px;
   }
 
+  .btn-reset {
+    background: rgba(239,68,68,0.12);
+    color: #f87171;
+    border: 1px solid rgba(239,68,68,0.3);
+    border-radius: 10px;
+    padding: 7px 14px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .btn-reset:hover {
+    background: rgba(239,68,68,0.22);
+    border-color: rgba(239,68,68,0.5);
+  }
+
+  .restore-banner {
+    background: rgba(99,102,241,0.12);
+    border: 1px solid rgba(99,102,241,0.3);
+    border-radius: 10px;
+    color: #a5b4fc;
+    font-size: 0.83rem;
+    padding: 10px 14px;
+    margin-bottom: 16px;
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .restore-banner.show { display: flex; }
+
   /* Results screen */
   .results {
     text-align: center;
@@ -333,6 +369,11 @@
       <span id="scoreLabel">Puntaje: 0</span>
     </div>
 
+    <div class="restore-banner" id="restoreBanner">
+      <span>📂 Progreso guardado restaurado</span>
+      <button class="btn-reset" onclick="confirmRestart()">🗑 Reiniciar todo</button>
+    </div>
+
     <div class="topic-badge" id="topicBadge">Tema</div>
     <div class="question-text" id="questionText"></div>
 
@@ -347,6 +388,10 @@
       <button class="btn btn-secondary" id="prevBtn" onclick="prevQuestion()">← Anterior</button>
       <span class="score-chip" id="scoreChip">0 / 0</span>
       <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()">Siguiente →</button>
+    </div>
+
+    <div style="text-align:center; margin-top:16px;">
+      <button class="btn-reset" onclick="confirmRestart()" style="margin:0 auto;">🗑 Reiniciar todo</button>
     </div>
   </div>
 
@@ -1305,10 +1350,28 @@ const questions = [
   }
 ];
 
+// ── LocalStorage ───────────────────────────────────────────────────────────
+const LS_KEY = 'quiz_guada_state';
+
+function saveState() {
+  localStorage.setItem(LS_KEY, JSON.stringify({ current, answered }));
+}
+
+function loadState() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(LS_KEY));
+    if (saved && Array.isArray(saved.answered) && saved.answered.length === questions.length) {
+      current = saved.current ?? 0;
+      answered = saved.answered;
+      return true;
+    }
+  } catch(e) {}
+  return false;
+}
+
 // ── State ──────────────────────────────────────────────────────────────────
 let current = 0;
-let score = 0;
-let answered = new Array(questions.length).fill(null); // index of chosen option
+let answered = new Array(questions.length).fill(null);
 
 function render() {
   const q = questions[current];
@@ -1377,13 +1440,14 @@ function render() {
 function selectOption(i) {
   if (answered[current] !== null) return;
   answered[current] = i;
-  if (i === questions[current].correct) score++;
+  saveState();
   render();
 }
 
 function nextQuestion() {
   if (current < questions.length - 1) {
     current++;
+    saveState();
     render();
   } else {
     showResults();
@@ -1391,7 +1455,7 @@ function nextQuestion() {
 }
 
 function prevQuestion() {
-  if (current > 0) { current--; render(); }
+  if (current > 0) { current--; saveState(); render(); }
 }
 
 function showResults() {
@@ -1417,16 +1481,27 @@ function showResults() {
   document.getElementById('resultsMsg').textContent = msg;
 }
 
+function confirmRestart() {
+  if (confirm('¿Seguro que querés reiniciar? Se borrará todo tu progreso.')) {
+    restartQuiz();
+  }
+}
+
 function restartQuiz() {
   current = 0;
-  score = 0;
   answered = new Array(questions.length).fill(null);
+  localStorage.removeItem(LS_KEY);
   document.getElementById('quizArea').classList.remove('hide');
   document.getElementById('resultsScreen').classList.remove('show');
+  document.getElementById('restoreBanner').classList.remove('show');
   render();
 }
 
-// init
+// init — restaurar progreso o empezar desde cero
+const hadSaved = loadState();
+if (hadSaved) {
+  document.getElementById('restoreBanner').classList.add('show');
+}
 render();
 </script>
 </body>
