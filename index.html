@@ -423,930 +423,624 @@
 const questions = [
   // ── TEC ──────────────────────────────────────────────────────────────
   {
-    topic: "TEC",
-    q: "¿Cuál es la clasificación de TEC leve según la Escala de Glasgow (GCS)?",
-    options: ["3 – 8", "9 – 12", "13 – 15", "6 – 9"],
-    correct: 2
+    topic:"TEC",
+    q:"En PECARN para <2 años, los 2 factores de ALTO riesgo que indican TC inmediata (sin observación) son:",
+    options:["Vómitos + cefalea persistente >1 h","Estado mental alterado O fractura de cráneo palpable","Hematoma occipital aislado + irritabilidad","Pérdida de conciencia >5 s + vómito único"],
+    correct:1
   },
   {
-    topic: "TEC",
-    q: "La tríada de Cushing en hipertensión endocraneana incluye:",
-    options: [
-      "Hipotensión, taquicardia, bradipnea",
-      "Hipertensión, bradicardia, bradipnea/irregularidad respiratoria",
-      "Hipotensión, bradicardia, taquipnea",
-      "Hipertensión, taquicardia, apnea"
-    ],
-    correct: 1
+    topic:"TEC",
+    q:"El objetivo de Presión de Perfusión Cerebral (PPC) en TEC grave en escolares de 6–17 años según guías actuales es:",
+    options:["≥40 mmHg","≥50 mmHg","≥60 mmHg","≥80 mmHg"],
+    correct:2
   },
   {
-    topic: "TEC",
-    q: "La primera causa de muerte en niños mayores de 1 año en países desarrollados es:",
-    options: ["Sepsis", "Cáncer", "Traumatismo", "Cardiopatías congénitas"],
-    correct: 2
+    topic:"TEC",
+    q:"En TEC grave con herniación inminente, la hiperventilación de RESCATE (transitoria) apunta a PaCO₂ de:",
+    options:["20–25 mmHg","30–35 mmHg","38–42 mmHg","45–50 mmHg"],
+    correct:1
   },
   {
-    topic: "TEC",
-    q: "En TEC grave, el objetivo de PaCO₂ recomendado (normocapnia) es:",
-    options: ["25 – 30 mmHg", "35 – 40 mmHg", "45 – 50 mmHg", "55 – 60 mmHg"],
-    correct: 1
+    topic:"TEC",
+    q:"La ventaja principal de la solución salina hipertónica (SSH) sobre el manitol en TEC grave con hipovolemia es:",
+    options:["No produce diuresis osmótica significativa y puede expandir el volumen intravascular, mientras el manitol agrava la hipovolemia","Mayor potencia osmótica por molécula (menor volumen de infusión)","No requiere control de osmolaridad sérica","Menor riesgo de rebote de la PIC a las 4 horas"],
+    correct:0
   },
   {
-    topic: "TEC",
-    q: "El tipo de hematoma intracraneal más frecuente en niños menores de 2 años con TEC no accidental es:",
-    options: ["Epidural", "Subdural", "Subaracnoideo", "Intraparenquimatoso"],
-    correct: 1
+    topic:"TEC",
+    q:"En TEC no accidental (síndrome del niño sacudido), el hallazgo oftalmológico más específico es:",
+    options:["Papiledema bilateral aislado","Hemorragias retinianas multilaminares bilaterales","Neuropatía óptica isquémica unilateral","Luxación del cristalino"],
+    correct:1
   },
   {
-    topic: "TEC",
-    q: "El 'intervalo lúcido' clásicamente se asocia al hematoma:",
-    options: ["Subdural agudo", "Epidural (arteria meníngea media)", "Subaracnoideo", "Intraparenquimatoso"],
-    correct: 1
+    topic:"TEC",
+    q:"La hiperventilación PROFILÁCTICA crónica en TEC grave está contraindicada porque:",
+    options:["Produce alcalosis metabólica compensadora que agrava el edema cerebral","Aumenta la PIC por vasodilatación refleja posterior","Es ineficaz en menores de 2 años únicamente","Genera vasoconstricción cerebral sostenida que reduce el FSC y puede causar isquemia secundaria"],
+    correct:3
   },
   {
-    topic: "TEC",
-    q: "En TEC moderado-grave, la maniobra para estabilizar la columna cervical durante la apertura de la vía aérea es:",
-    options: [
-      "Hiperextensión del cuello",
-      "Tracción manual en línea de la columna cervical",
-      "Rotación lateral de la cabeza",
-      "Flexión del cuello"
-    ],
-    correct: 1
+    topic:"TEC",
+    q:"Ante alta sospecha clínica de TEC no accidental, el estudio de neuroimagen de PRIMERA elección es:",
+    options:["TC cráneo sin contraste + RM diferida 24–72 h para detectar lesiones en distintos estadios","Eco transfontanelar aislado","RM cráneo urgente como único estudio inicial","Rx cráneo AP y lateral"],
+    correct:0
   },
-  // ── CONVULSIONES Y STATUS ─────────────────────────────────────────────
+  // ── CONVULSIONES ─────────────────────────────────────────────────────
   {
-    topic: "Convulsiones",
-    q: "El status epilepticus se define clásicamente como convulsión continua o sin recuperación de conciencia durante más de:",
-    options: ["5 minutos", "15 minutos", "30 minutos", "60 minutos"],
-    correct: 2
+    topic:"Convulsiones",
+    q:"El síndrome de Ohtahara (encefalopatía epiléptica neonatal precoz) se caracteriza por el patrón EEG:",
+    options:["Hipsarritmia generalizada","Punta-onda lenta continua durante el sueño (CSWS)","Spike-wave 3 Hz generalizado en vigilia","Patrón de supresión-brote (burst-suppression)"],
+    correct:3
   },
   {
-    topic: "Convulsiones",
-    q: "La primera línea de tratamiento del status epilepticus en urgencias (sin acceso venoso) es:",
-    options: [
-      "Fenitoína IV",
-      "Diazepam rectal o midazolam intranasal/bucal",
-      "Fenobarbital IM",
-      "Levetiracetam IV"
-    ],
-    correct: 1
+    topic:"Convulsiones",
+    q:"Ante una primera crisis febril SIMPLE en un niño de 18 meses, la indicación de EEG es:",
+    options:["No está indicado de rutina; la primera crisis febril simple no requiere EEG","Solo si hay antecedentes familiares de epilepsia en primer grado","Siempre a las 4–6 semanas del episodio","Si la temperatura superó los 40°C"],
+    correct:0
   },
   {
-    topic: "Convulsiones",
-    q: "Dosis habitual de diazepam rectal en status epilepticus:",
-    options: ["0.1 mg/kg", "0.3 mg/kg", "0.5 mg/kg", "1 mg/kg"],
-    correct: 2
+    topic:"Convulsiones",
+    q:"La dosis de carga de ácido valproico IV en status epilepticus refractario pediátrico es:",
+    options:["10 mg/kg en bolo de 5 min","15 mg/kg en infusión de 30 min","20–40 mg/kg a 3–6 mg/kg/min","60 mg/kg en bolo único"],
+    correct:2
   },
   {
-    topic: "Convulsiones",
-    q: "La causa más frecuente de status epilepticus en niños menores de 5 años es:",
-    options: ["Meningitis bacteriana", "Crisis febril", "Epilepsia conocida", "Traumatismo craneal"],
-    correct: 1
+    topic:"Convulsiones",
+    q:"El síndrome de West tiene mejor pronóstico cuando:",
+    options:["El EEG muestra hipsarritmia simétrica sin supresión","Se diagnostica y trata precozmente antes de los 3 meses del inicio de espasmos (ACTH o vigabatrina)","Se asocia a esclerosis tuberosa con tuberomas corticales múltiples","El inicio ocurre antes de los 3 meses de vida"],
+    correct:1
   },
   {
-    topic: "Convulsiones",
-    q: "En status epilepticus refractario (que no cede con 2 dosis de benzodiacepinas), la siguiente droga de elección es:",
-    options: [
-      "Tercera dosis de diazepam",
-      "Fenitoína o fosfenitoína IV",
-      "Paracetamol IV",
-      "Adrenalina"
-    ],
-    correct: 1
+    topic:"Convulsiones",
+    q:"La ketamina puede usarse en status epilepticus superrefractario porque su mecanismo es:",
+    options:["Potenciación GABAérgica igual que las benzodiacepinas","Bloqueo de canales de sodio voltaje-dependientes, sin cruce de tolerancia","Inhibición de la liberación de glutamato presináptico","Antagonismo NMDA, mecanismo diferente a BZD y barbitúricos, útil en status refractario"],
+    correct:3
   },
   {
-    topic: "Convulsiones",
-    q: "La crisis febril simple se diferencia de la convulsión febril compleja principalmente porque:",
-    options: [
-      "Dura más de 15 minutos",
-      "Es generalizada, dura <15 min y no se repite en 24 h",
-      "Es focal",
-      "Tiene déficit postictal prolongado"
-    ],
-    correct: 1
+    topic:"Convulsiones",
+    q:"El síndrome de Lennox-Gastaut se define por la tríada:",
+    options:["Crisis múltiples (tónicas, atónicas, ausencias atípicas) + EEG con punta-onda lenta <2.5 Hz + deterioro cognitivo","Espasmos infantiles + hipsarritmia + regresión del desarrollo","Ausencias típicas + punta-onda 3 Hz + inteligencia conservada","Mioclonías masivas + crisis TCG + EEG fotosensible en adolescente"],
+    correct:0
+  },
+  {
+    topic:"Convulsiones",
+    q:"El riesgo de desarrollar epilepsia tras un PRIMER episodio de status epilepticus febril prolongado (FEBSTAT) es aproximadamente:",
+    options:["1–2% (similar a la población general)","5–8%","20–35% (significativamente elevado respecto a la población general)","Más del 80% en todos los casos"],
+    correct:2
   },
   // ── QUEMADURAS ────────────────────────────────────────────────────────
   {
-    topic: "Quemaduras",
-    q: "Una quemadura de segundo grado superficial (dérmico superficial) se caracteriza por:",
-    options: [
-      "Solo eritema sin ampollas ni dolor",
-      "Ampollas, base rosada húmeda y dolor intenso",
-      "Necrosis completa sin dolor",
-      "Carbonización y anestesia"
-    ],
-    correct: 1
+    topic:"Quemaduras",
+    q:"La fórmula de Galveston (específica para pediatría) difiere de Parkland en que agrega:",
+    options:["Coloides desde las primeras 8 h para mantener la presión oncótica","Un componente de mantenimiento basal por superficie corporal total (1500 ml/m²) además del componente de reposición por quemadura","Albúmina al 5% como fluido principal desde las 12 h","Glucosa en todos los fluidos para prevenir hipoglucemia"],
+    correct:1
   },
   {
-    topic: "Quemaduras",
-    q: "La fórmula de Parkland para reposición de líquidos en las primeras 24 h es:",
-    options: [
-      "2 ml × kg × % SCQ",
-      "3 ml × kg × % SCQ",
-      "4 ml × kg × % SCQ",
-      "6 ml × kg × % SCQ"
-    ],
-    correct: 2
+    topic:"Quemaduras",
+    q:"La quemadura de TERCER grado se caracteriza por:",
+    options:["Ampollas con base rosada húmeda y dolor intenso al tacto","Eritema sin ampollas, dolorosa y con relleno capilar <2 s","Destrucción total del espesor dérmico, piel acartonada/coriácea, indolora, con trombosis venosas visibles","Necrosis epidérmica superficial con dermis intacta"],
+    correct:2
   },
   {
-    topic: "Quemaduras",
-    q: "En pediatría, la regla de los 9 se modifica principalmente porque:",
-    options: [
-      "El tronco es más pequeño",
-      "La cabeza tiene mayor superficie corporal relativa que en adultos",
-      "Las extremidades inferiores son más grandes",
-      "El peso cambia la superficie total"
-    ],
-    correct: 1
+    topic:"Quemaduras",
+    q:"En un niño con estridor progresivo y chamuscado de vibrisas nasales tras incendio cerrado, la prioridad inmediata es:",
+    options:["Intubación orotraqueal precoz antes de que el edema progresivo obstruya la vía aérea","Adrenalina nebulizada + corticoide IV y reevaluar en 2 h","Broncoscopía flexible urgente para valorar el daño","Traqueotomía de urgencia como primer paso"],
+    correct:0
   },
   {
-    topic: "Quemaduras",
-    q: "¿Qué porcentaje de superficie corporal quemada en un niño es criterio de hospitalización?",
-    options: [">5%", ">10%", ">20%", ">30%"],
-    correct: 1
+    topic:"Quemaduras",
+    q:"En la tabla de Lund-Browder, la cabeza de un lactante de 12 meses representa aproximadamente:",
+    options:["9% (igual que en adulto)","13%","18% (aproximadamente el doble que en adulto)","25%"],
+    correct:2
   },
   {
-    topic: "Quemaduras",
-    q: "En quemaduras eléctricas de alto voltaje, la complicación sistémica más temida es:",
-    options: [
-      "Hipotermia severa",
-      "Rabdomiólisis con insuficiencia renal aguda",
-      "Infección por Pseudomonas",
-      "Cicatriz hipertrófica"
-    ],
-    correct: 1
+    topic:"Quemaduras",
+    q:"La profilaxis antibiótica sistémica de rutina en quemaduras NO está recomendada porque:",
+    options:["Los antibióticos no alcanzan la zona quemada por trombosis vascular local","Favorece la selección de gérmenes multirresistentes sin reducir la tasa de infección","Solo se indica en quemaduras >50% SCQ en UCI","El riesgo infeccioso en las primeras 72 h es despreciable"],
+    correct:1
+  },
+  // ── SEPSIS ────────────────────────────────────────────────────────────
+  {
+    topic:"Sepsis",
+    q:"Según el Surviving Sepsis Campaign pediátrico 2020, los antibióticos IV en shock séptico deben administrarse:",
+    options:["Dentro de las 3 h del reconocimiento","Dentro de la primera hora del reconocimiento de shock séptico","Solo tras obtener al menos 2 hemocultivos de sitios distintos","Cuando el lactato supere 4 mmol/L"],
+    correct:2
   },
   {
-    topic: "Quemaduras",
-    q: "El fluido de elección para la reposición inicial en quemaduras graves es:",
-    options: ["Dextrosa 5%", "Solución fisiológica 0.9%", "Ringer lactato", "Albúmina al 20%"],
-    correct: 2
+    topic:"Sepsis",
+    q:"El marcador con mayor ESPECIFICIDAD para diferenciar sepsis bacteriana de viral en pediatría es:",
+    options:["PCR >100 mg/L","Leucocitosis >15.000/mm³ con desviación izquierda","Fiebre >39.5°C de inicio brusco con escalofríos","Procalcitonina (PCT) >2 ng/mL"],
+    correct:3
   },
   {
-    topic: "Quemaduras",
-    q: "La quemadura de tercer grado se caracteriza por:",
-    options: [
-      "Eritema sin ampollas",
-      "Ampollas dolorosas",
-      "Destrucción total del espesor dérmico, aspecto coriáceo, insensible al dolor",
-      "Solo compromiso de la epidermis"
-    ],
-    correct: 2
-  },
-  // ── SEPSIS Y SHOCK SÉPTICO ─────────────────────────────────────────────
-  {
-    topic: "Sepsis",
-    q: "Según Sepsis-3, la sepsis se define como:",
-    options: [
-      "Fiebre + leucocitosis + foco infeccioso",
-      "Infección con disfunción orgánica que amenaza la vida",
-      "SRIS sin foco identificable",
-      "Hipotensión + taquicardia de causa infecciosa"
-    ],
-    correct: 1
+    topic:"Sepsis",
+    q:"El esquema antibiótico empírico de elección en SEPSIS NEONATAL DE INICIO PRECOZ (<72 h de vida) es:",
+    options:["Ampicilina + aminoglucósido (cubre SGB, Listeria y E. coli)","Ceftriaxona + vancomicina","Piperacilina-tazobactam en monoterapia","Cefotaxima + metronidazol"],
+    correct:0
   },
   {
-    topic: "Sepsis",
-    q: "El shock séptico pediátrico se caracteriza por:",
-    options: [
-      "Solo fiebre alta",
-      "Sepsis con disfunción cardiovascular persistente a pesar de resucitación adecuada",
-      "Taquicardia aislada",
-      "Hipotermia sin foco"
-    ],
-    correct: 1
+    topic:"Sepsis",
+    q:"¿Cuál de los siguientes contactos de un caso de meningococcemia NO requiere quimioprofilaxis?",
+    options:["Familiar conviviente en el mismo hogar","Compañero de clase con contacto casual, sin exposición cara a cara íntima (<1 m) ni convivencia","Personal de salud que realizó intubación sin mascarilla","Pareja con contacto íntimo (beso) en los 7 días previos"],
+    correct:1
   },
   {
-    topic: "Sepsis",
-    q: "El primer bolo de volumen recomendado en shock séptico pediátrico es:",
-    options: ["5 ml/kg", "10 ml/kg", "20 ml/kg en 10-20 min", "40 ml/kg"],
-    correct: 2
+    topic:"Sepsis",
+    q:"El score de disfunción orgánica pediátrico más utilizado en UCIP para cuantificar morbimortalidad en sepsis es:",
+    options:["APACHE II pediátrico adaptado","SOFA adulto con corrección por edad","PELOD-2 (Pediatric Logistic Organ Dysfunction-2)","PRISM III"],
+    correct:2
   },
   {
-    topic: "Sepsis",
-    q: "El lactato sérico se considera elevado (hiperlactatemia) cuando supera:",
-    options: ["1 mmol/L", "2 mmol/L", "4 mmol/L", "6 mmol/L"],
-    correct: 1
-  },
-  {
-    topic: "Sepsis",
-    q: "El vasopresor de primera elección en shock séptico pediátrico con presentación de 'shock frío' (extremidades frías, llenado capilar lento) es:",
-    options: ["Noradrenalina", "Adrenalina", "Vasopresina", "Dobutamina"],
-    correct: 1
-  },
-  {
-    topic: "Sepsis",
-    q: "El antibiótico empírico de primera línea en sepsis sin foco en pediatría (fuera de periodo neonatal) generalmente incluye:",
-    options: [
-      "Amoxicilina oral",
-      "Cefalosporina de 3.ª generación (ceftriaxona/cefotaxima) IV",
-      "Metronidazol IV",
-      "Vancomicina sola"
-    ],
-    correct: 1
-  },
-  {
-    topic: "Sepsis",
-    q: "La 'hora de oro' en sepsis hace referencia a:",
-    options: [
-      "Realizar una TC en la primera hora",
-      "Iniciar antibióticos + resucitación con fluidos en la primera hora",
-      "Trasladar al paciente en la primera hora",
-      "Tomar laboratorio en la primera hora"
-    ],
-    correct: 1
+    topic:"Sepsis",
+    q:"En shock séptico refractario con fracción de eyección ventricular izquierda <35% en ecocardiograma, el soporte vasoactivo preferido es:",
+    options:["Noradrenalina en altas dosis como único agente","Vasopresina en infusión continua","Adrenalina sola","Milrinona (inodilatador) ± noradrenalina si persiste hipotensión"],
+    correct:3
   },
   // ── SÍNCOPE ───────────────────────────────────────────────────────────
   {
-    topic: "Síncope",
-    q: "La causa más frecuente de síncope en niños y adolescentes es:",
-    options: [
-      "Cardíaco (arritmia)",
-      "Neurológico (epilepsia)",
-      "Vasovagal / neurocardiogénico",
-      "Metabólico (hipoglucemia)"
-    ],
-    correct: 2
+    topic:"Síncope",
+    q:"El valor de QTc considerado PATOLÓGICO en niños escolares es:",
+    options:[">460 ms en niñas o >440 ms en varones prepúberes",">500 ms en todos los niños independiente del sexo",">420 ms como valor único universal",">480 ms solo si hay síntomas asociados"],
+    correct:0
   },
   {
-    topic: "Síncope",
-    q: "El síncope vasovagal se precipita típicamente por:",
-    options: [
-      "Ejercicio intenso",
-      "Dolor, calor, bipedestación prolongada o visión de sangre",
-      "Inmersión en agua fría",
-      "Ingesta de alimentos"
-    ],
-    correct: 1
+    topic:"Síncope",
+    q:"El síncope durante natación en un niño de 10 años, con ecocardiograma normal, hace sospechar principalmente:",
+    options:["Síncope vasovagal por esfuerzo intenso","LQT2 (desencadenado por estímulo auditivo brusco)","LQT1 (el ejercicio y especialmente la natación es el trigger característico)","Síndrome de Brugada desencadenado por el frío del agua"],
+    correct:2
   },
   {
-    topic: "Síncope",
-    q: "El síncope durante el ejercicio en un niño debe hacer sospechar principalmente:",
-    options: [
-      "Síncope vasovagal",
-      "Hipoglucemia",
-      "Origen cardíaco (miocardiopatía, arritmia)",
-      "Crisis de ansiedad"
-    ],
-    correct: 2
+    topic:"Síncope",
+    q:"En síndrome de WPW con taquicardia por fibrilación auricular, el fármaco CONTRAINDICADO es:",
+    options:["Adenosina IV a dosis habitual","Maniobras vagales como primera maniobra","Cardioversión eléctrica sincronizada si hay inestabilidad","Verapamilo IV (bloquea el nodo AV pero puede acelerar la conducción por la vía accesoria precipitando FV)"],
+    correct:3
   },
   {
-    topic: "Síncope",
-    q: "¿Qué hallazgo en el ECG es más sugestivo de síncope de origen cardíaco?",
-    options: [
-      "Eje normal",
-      "QTc prolongado >480 ms",
-      "Bradicardia sinusal leve",
-      "Repolarización precoz aislada"
-    ],
-    correct: 1
+    topic:"Síncope",
+    q:"El patrón de Brugada DIAGNÓSTICO (tipo 1 o 'coved') en V1-V2 consiste en:",
+    options:["Elevación convexa del ST con onda T positiva ('en silla de montar') ≥2 mm","Elevación del ST ≥2 mm en forma de bóveda descendente con onda T negativa","Depresión difusa del ST con ondas T negativas simétricas en V1-V3","Patrón de BRD completo con QRS >120 ms sin elevación del ST"],
+    correct:1
   },
   {
-    topic: "Síncope",
-    q: "El tilt test (prueba de mesa basculante) se utiliza para diagnosticar:",
-    options: [
-      "Síncope arrítmico",
-      "Epilepsia",
-      "Síncope vasovagal / disautonomía",
-      "Hipoglucemia reactiva"
-    ],
-    correct: 2
+    topic:"Síncope",
+    q:"Las maniobras vagales (Valsalva, inmersión facial en frío) revierten la TSV porque:",
+    options:["Estimulan el nervio vago aumentando la conducción nodal AV y frenando la taquicardia","Producen vasoconstricción periférica que aumenta la postcarga ventricular","Bloquean directamente los canales de calcio tipo L en el nodo AV","Inhiben la corriente If del nodo sinusal reduciendo el automatismo"],
+    correct:0
   },
   // ── DOLOR TORÁCICO ────────────────────────────────────────────────────
   {
-    topic: "Dolor Torácico",
-    q: "La causa más frecuente de dolor torácico en pediatría es:",
-    options: ["Cardíaca", "Musculoesquelética / costocondral", "Pulmonar", "Gastrointestinal"],
-    correct: 1
+    topic:"Dolor Torácico",
+    q:"La combinación ECG más característica del estadio 1 de pericarditis aguda es:",
+    options:["Elevación localizada del ST con imagen especular y ondas Q patológicas","Prolongación del QTc + bloqueo AV de 1er grado","Elevación difusa del ST cóncavo ('en silla de montar') + depresión del segmento PR (excepto aVR y V1 donde el PR se eleva)","Depresión difusa del ST con ondas T negativas simétricas"],
+    correct:2
   },
   {
-    topic: "Dolor Torácico",
-    q: "El dolor torácico de origen cardíaco en niños se asocia principalmente a:",
-    options: [
-      "Tos",
-      "Esfuerzo físico",
-      "Ingesta de alimentos",
-      "Presión directa sobre el esternón"
-    ],
-    correct: 1
+    topic:"Dolor Torácico",
+    q:"La miocarditis fulminante en adolescente se presenta típicamente con:",
+    options:["Soplo sistólico de nueva aparición + fiebre sin otros signos de alarma","Insuficiencia cardíaca aguda + troponina muy elevada + ECG con taquicardia sinusal, cambios ST-T o arritmias ventriculares","Solo pericarditis clínica con dolor pleurítico y frote audible","Hipertensión + proteinuria como manifestaciones iniciales"],
+    correct:1
   },
   {
-    topic: "Dolor Torácico",
-    q: "En pericarditis aguda, el ECG clásicamente muestra:",
-    options: [
-      "Elevación localizada del ST con imagen especular",
-      "Elevación difusa del ST cóncavo ('en silla de montar') + depresión PR",
-      "Depresión difusa del ST",
-      "Bloqueo aurículo-ventricular completo"
-    ],
-    correct: 1
+    topic:"Dolor Torácico",
+    q:"La cocaína puede causar infarto de miocardio en adolescentes mediante:",
+    options:["Vasospasmo coronario + efecto protrombótico + aumento del consumo miocárdico de O₂ por estimulación adrenérgica","Solo bloqueo AV completo por toxicidad directa sobre el tejido de conducción","Miocardiopatía dilatada de instauración inmediata","Depresión de la función sistólica por bloqueo de los canales de sodio únicamente"],
+    correct:0
   },
   {
-    topic: "Dolor Torácico",
-    q: "El tratamiento de primera línea de la pericarditis aguda idiopática es:",
-    options: [
-      "Antibióticos",
-      "Corticoides a dosis altas",
-      "AINE + colchicina",
-      "Anticoagulación sistémica"
-    ],
-    correct: 2
+    topic:"Dolor Torácico",
+    q:"El neumotórax espontáneo primario en el adolescente alto y delgado se origina principalmente en:",
+    options:["Malformación adenomatoide quística pulmonar congénita","Bronquiectasias por fibrosis quística no diagnosticada","Enfisema panacinar por déficit de alfa-1 antitripsina","Rotura de bulas subpleurales apicales (blebs)"],
+    correct:3
   },
   {
-    topic: "Dolor Torácico",
-    q: "El signo de Hamman (crujido mediastínico sincrónico con el latido) sugiere:",
-    options: [
-      "Neumotórax espontáneo",
-      "Neumomediastino",
-      "Hemotórax",
-      "Miocarditis"
-    ],
-    correct: 1
+    topic:"Dolor Torácico",
+    q:"El tratamiento de la PRIMERA RECURRENCIA de pericarditis idiopática con mayor evidencia para prevenir nuevas recaídas es:",
+    options:["Corticoides a dosis altas por 4 semanas","Doblar la dosis de AINEs por 6 meses","Colchicina + AINEs durante 3 meses (la colchicina reduce las recurrencias ~50%)","Pericardiectomía quirúrgica preventiva"],
+    correct:2
   },
   // ── MORDEDURAS ────────────────────────────────────────────────────────
   {
-    topic: "Mordeduras",
-    q: "La mordedura de animal más frecuente en pediatría es:",
-    options: ["Gato", "Perro", "Humano", "Serpiente"],
-    correct: 1
+    topic:"Mordeduras",
+    q:"Una 'fight bite' (laceración sobre los nudillos al golpear los dientes del rival) es especialmente grave porque:",
+    options:["Siempre fractura el metacarpiano subyacente","La herida sobre la articulación MCF implica riesgo de artritis séptica devastadora por flora oral (Eikenella corrodens + anaerobios)","El cierre quirúrgico inmediato dentro de 2 h es siempre obligatorio","El VIH se transmite en >50% de los casos por esta vía"],
+    correct:1
   },
   {
-    topic: "Mordeduras",
-    q: "La principal bacteria responsable de infección en mordeduras de gato es:",
-    options: [
-      "Staphylococcus aureus",
-      "Pasteurella multocida",
-      "Streptococcus pyogenes",
-      "Escherichia coli"
-    ],
-    correct: 1
+    topic:"Mordeduras",
+    q:"En mordedura de perro con herida profunda en la mano, la conducta correcta sobre el cierre es:",
+    options:["Cierre primario inmediato siempre para reducir el riesgo infeccioso","Solo cierre primario en pacientes inmunodeprimidos","Cierre primario diferido a las 48 h en todos los casos","Cierre primario diferido o por segunda intención en manos y pies (alto riesgo); se puede cerrar primariamente en cara por cosmética"],
+    correct:3
   },
   {
-    topic: "Mordeduras",
-    q: "El antibiótico de elección para profilaxis/tratamiento de mordeduras animales es:",
-    options: [
-      "Cefalexina",
-      "Amoxicilina-clavulánico",
-      "Ciprofloxacina",
-      "Metronidazol"
-    ],
-    correct: 1
+    topic:"Mordeduras",
+    q:"La dosis y técnica correcta de la inmunoglobulina antirrábica (IGAR) en la profilaxis post-exposición es:",
+    options:["20 UI/kg: infiltrar el máximo posible directamente en la herida; el resto IM en sitio distante a la vacuna","40 UI/kg IM en sitio único alejado de la vacuna","1 ampolla fija independiente del peso, solo IM","Solo si el animal resultó positivo en laboratorio tras observación de 10 días"],
+    correct:0
   },
   {
-    topic: "Mordeduras",
-    q: "La mordedura humana tiene alto riesgo de infección, especialmente por:",
-    options: [
-      "Salmonella",
-      "Eikenella corrodens",
-      "Bordetella pertussis",
-      "Haemophilus influenzae"
-    ],
-    correct: 1
+    topic:"Mordeduras",
+    q:"En el envenenamiento por Latrodectus ('viuda negra'), el cuadro clínico específico (latrodectismo) consiste en:",
+    options:["Necrosis cutánea progresiva e indolora con área de dermonecrosis central","Edema angioneurótico + urticaria generalizada sin dolor local intenso","Dolor muscular intenso y generalizado, sudoración profusa, hipertensión, taquicardia, SIN necrosis local","Parálisis flácida ascendente con ptosis palpebral y arreflexia"],
+    correct:2
+  },
+  // ── INTOXICACIONES ────────────────────────────────────────────────────
+  {
+    topic:"Intoxicaciones",
+    q:"El nomograma de Rumack-Matthew es válido SOLO cuando se cumplen las siguientes condiciones:",
+    options:["Ingesta confirmada de paracetamol, edad >6 años, sin hepatopatía previa","Glucemia normal al momento del dosaje plasmático","Ingesta única aguda conocida con dosaje entre las 4 y 24 h post-ingesta","Ingesta <6 h antes con lavado gástrico ya realizado"],
+    correct:3
   },
   {
-    topic: "Mordeduras",
-    q: "La profilaxis antirrábica post-exposición siempre está indicada ante mordedura de:",
-    options: [
-      "Perro doméstico vacunado, observado 10 días sin síntomas",
-      "Murciélago, zorro, coyote u otro mamífero silvestre",
-      "Cobayo (cuyo) doméstico",
-      "Ave de corral"
-    ],
-    correct: 1
+    topic:"Intoxicaciones",
+    q:"En intoxicación por antidepresivos tricíclicos, el QRS >100 ms predice arritmias ventriculares. El tratamiento es:",
+    options:["Bicarbonato de sodio IV para alcalinizar el plasma a pH 7.45–7.55 (reduce el bloqueo de los canales de Na)","Lidocaína IV como antiarrítmico de primera elección","Marcapasos externo transtorácico inmediato","Sulfato de magnesio IV igual que en torsades de pointes"],
+    correct:0
   },
   {
-    topic: "Mordeduras",
-    q: "En mordeduras de serpiente (ofidismo), el tratamiento específico es:",
-    options: [
-      "Torniquete en el miembro afectado",
-      "Antiveneno (suero antiofídico) específico IV",
-      "Incisión y succión del veneno",
-      "Corticoides IM"
-    ],
-    correct: 1
-  },
-  // ── INTOXICACIONES PEDIÁTRICAS ─────────────────────────────────────────
-  {
-    topic: "Intoxicaciones",
-    q: "El antídoto específico del paracetamol (acetaminofén) es:",
-    options: [
-      "Flumazenil",
-      "Naloxona",
-      "N-acetilcisteína",
-      "Atropina"
-    ],
-    correct: 2
+    topic:"Intoxicaciones",
+    q:"En intoxicación grave por betabloqueadores refractaria, la terapia de hiperinsulinemia-euglucemia (HIET) actúa mediante:",
+    options:["Bloqueo competitivo de los receptores beta-1 miocárdicos restantes","Vasoconstricción coronaria selectiva que mejora la perfusión","Mejora del metabolismo miocárdico al cambiar el sustrato energético de ácidos grasos a glucosa (el miocardio deprimido usa preferentemente glucosa)","Estimulación directa de receptores alfa-1 con efecto inotrópico"],
+    correct:2
   },
   {
-    topic: "Intoxicaciones",
-    q: "La naloxona es el antídoto de:",
-    options: ["Benzodiazepinas", "Opioides", "Organofosforados", "Antidepresivos tricíclicos"],
-    correct: 1
+    topic:"Intoxicaciones",
+    q:"El toxidrome anticolinérgico clásico se describe como:",
+    options:["SLUDGE (sialorrea, lagrimeo, micción, defecación, espasmo GI, emesis)","'Ciego como murciélago, rojo como remolacha, seco como hueso, caliente como liebre, loco como sombrerero' (midriasis, rubor, anhidrosis, hipertermia, delirio)","Miosis puntiforme + bradipnea + bradicardia + aumento del peristaltismo","Hipertermia + rigidez muscular grave + diaforesis + alteración del sensorio"],
+    correct:1
   },
   {
-    topic: "Intoxicaciones",
-    q: "El flumazenil es el antídoto de:",
-    options: ["Opiáceos", "Alcohol etílico", "Benzodiazepinas", "Barbitúricos"],
-    correct: 2
+    topic:"Intoxicaciones",
+    q:"Las convulsiones por intoxicación con isoniazida (profilaxis TBC) son refractarias a benzodiacepinas. El tratamiento específico es:",
+    options:["Fenitoína IV en dosis de carga","Piridoxamina IM 50 mg","N-acetilcisteína IV","Piridoxina (vitamina B6) IV: gramo por gramo de INH ingerida (o 5 g empírico si dosis desconocida)"],
+    correct:3
   },
   {
-    topic: "Intoxicaciones",
-    q: "El síndrome muscarínico en intoxicación por organofosforados se caracteriza por:",
-    options: [
-      "Midriasis, taquicardia, sequedad de mucosas",
-      "Miosis, bradicardia, sialorrea, broncospasmo",
-      "Convulsiones, hipertermia, rigidez",
-      "Cianosis, apnea, paro cardíaco"
-    ],
-    correct: 1
+    topic:"Intoxicaciones",
+    q:"En intoxicación por brodifacum (raticida superwarfarínico de acción ultra-prolongada), el tratamiento específico es:",
+    options:["Vitamina K oral/IV en dosis altas por semanas a meses + plasma fresco si hay sangrado activo","Vitamina K IM dosis única de 1 mg/kg","Protamina IV para revertir el efecto anticoagulante","Heparina de bajo peso molecular hasta normalizar el INR"],
+    correct:0
   },
   {
-    topic: "Intoxicaciones",
-    q: "El tratamiento de la intoxicación por organofosforados incluye:",
-    options: [
-      "Naloxona IV",
-      "Atropina + pralidoxima (obidoxima)",
-      "N-acetilcisteína oral",
-      "Bicarbonato de sodio IV"
-    ],
-    correct: 1
+    topic:"Intoxicaciones",
+    q:"Un 'gap osmolar' elevado (osmolaridad medida − calculada >10 mOsm/kg) orienta principalmente a:",
+    options:["Cetoacidosis diabética o alcohólica como causa única","Intoxicación por salicilatos con acidosis metabólica grave","Intoxicación por alcoholes tóxicos (metanol, etilenglicol, isopropanol)","Insuficiencia renal aguda con uremia severa"],
+    correct:2
   },
   {
-    topic: "Intoxicaciones",
-    q: "En intoxicación por antidepresivos tricíclicos, el hallazgo ECG más característico es:",
-    options: [
-      "QT largo con ondas U",
-      "Ensanchamiento del QRS >100 ms",
-      "Depresión del ST difusa",
-      "Bloqueo auriculoventricular de 1.er grado"
-    ],
-    correct: 1
+    topic:"Intoxicaciones",
+    q:"En niño de 3 años con deterioro del sensorio de causa desconocida, el enfoque diagnóstico-terapéutico inicial incluye:",
+    options:["TC cráneo urgente + PL antes de cualquier tratamiento","Glucosa IV + naloxona IV (y flumazenil solo si no hay epilepsia ni dependencia a BZD) como abordaje empírico mientras se investiga","Intubación inmediata sin otros pasos previos","Antibióticos empíricos + dexametasona ante la duda de meningitis"],
+    correct:1
   },
   {
-    topic: "Intoxicaciones",
-    q: "El bicarbonato de sodio IV en intoxicación por tricíclicos se usa para:",
-    options: [
-      "Alcalinizar la orina y aumentar excreción",
-      "Revertir la toxicidad cardíaca (estrechar el QRS) al alcalinizar el plasma",
-      "Neutralizar el tóxico directamente",
-      "Tratar la hiperkalemia asociada"
-    ],
-    correct: 1
+    topic:"Intoxicaciones",
+    q:"El síndrome de abstinencia neonatal a opioides (NAS) se trata de primera línea con:",
+    options:["Metadona IV en infusión continua","Fenobarbital oral como monoterapia universal","Diazepam en dosis decreciente por vía oral","Morfina oral o metadona oral titulada según puntaje de Finnegan (escala de evaluación), con reducción progresiva"],
+    correct:3
   },
   {
-    topic: "Intoxicaciones",
-    q: "La complicación más grave de la intoxicación aguda por paracetamol es:",
-    options: [
-      "Insuficiencia renal aguda",
-      "Falla hepática fulminante",
-      "Arritmia cardíaca",
-      "Depresión respiratoria"
-    ],
-    correct: 1
+    topic:"Intoxicaciones",
+    q:"En intoxicación aguda por cianuro (combustión de materiales sintéticos en incendio cerrado), el antídoto de PRIMERA ELECCIÓN disponible es:",
+    options:["Hidroxicobalamina IV 70 mg/kg (Cyanokit); alternativa: nitrito de sodio + tiosulfato de sodio","N-acetilcisteína IV en altas dosis","Atropina IV + pralidoxima para reactivar colinesterasas","Oxígeno hiperbárico exclusivamente"],
+    correct:0
+  },
+  // ── AISLAMIENTO ──────────────────────────────────────────────────────
+  {
+    topic:"Aislamiento",
+    q:"La influenza en paciente hospitalizado requiere precauciones por gotas por un período de:",
+    options:["24 h de afebrilidad sin antipiréticos","5 días desde el inicio de síntomas","7 días desde el inicio de síntomas o hasta 24 h después de la resolución de fiebre Y síntomas respiratorios, lo que sea mayor","Hasta 2 PCR negativos de fauces consecutivos"],
+    correct:2
   },
   {
-    topic: "Intoxicaciones",
-    q: "El carbón activado está CONTRAINDICADO en intoxicación por:",
-    options: [
-      "Paracetamol",
-      "Ácido acetilsalicílico",
-      "Cáusticos (ácidos y álcalis fuertes)",
-      "Antidepresivos tricíclicos"
-    ],
-    correct: 2
+    topic:"Aislamiento",
+    q:"El ébola y otros filovirus hemorrágicos requieren el nivel máximo de precauciones. El EPP correcto es:",
+    options:["Guantes + mascarilla quirúrgica + bata desechable","Mascarilla N95 + guantes dobles únicamente","Aislamiento aéreo con presión negativa + mascarilla N95","Traje de protección hermético + doble guante + protección ocular total + N95 o PAPR + habitación con presión negativa"],
+    correct:3
   },
   {
-    topic: "Intoxicaciones",
-    q: "En intoxicación grave por hierro, el quelante específico es:",
-    options: ["Deferoxamina", "Dimercaprol (BAL)", "EDTA cálcico", "Penicilamina"],
-    correct: 0
-  },
-  // ── MEDIDAS DE AISLAMIENTO ─────────────────────────────────────────────
-  {
-    topic: "Aislamiento",
-    q: "El aislamiento de CONTACTO se indica en infecciones por:",
-    options: [
-      "Mycobacterium tuberculosis (TBC pulmonar activa)",
-      "S. aureus meticilino-resistente (SAMR) / enterobacterias MDR",
-      "Virus del sarampión",
-      "Virus de la varicela"
-    ],
-    correct: 1
+    topic:"Aislamiento",
+    q:"El rotavirus en lactante hospitalizado requiere aislamiento de:",
+    options:["Contacto (transmisión fecal-oral; el alcohol gel ES efectivo contra rotavirus a diferencia de C. difficile)","Aéreo + contacto combinado","Solo gotas al momento de la alimentación","No requiere aislamiento en sala pediátrica general"],
+    correct:0
   },
   {
-    topic: "Aislamiento",
-    q: "La tuberculosis pulmonar activa (bacilífera) requiere aislamiento:",
-    options: ["De contacto", "Por gotas (droplet)", "Aéreo (partículas <5 µm)", "Protector / inverso"],
-    correct: 2
+    topic:"Aislamiento",
+    q:"Un paciente con VIH con carga viral indetectable que desarrolla varicela activa requiere:",
+    options:["Solo aislamiento de contacto dado que tiene carga viral indetectable","Aislamiento aéreo + contacto (igual que cualquier paciente con varicela, independientemente del estado inmunológico)","Aislamiento de contacto + gotas (sin componente aéreo)","No requiere aislamiento adicional si el recuento de CD4 es >500"],
+    correct:1
   },
   {
-    topic: "Aislamiento",
-    q: "El equipo de protección personal para aislamiento AÉREO incluye obligatoriamente:",
-    options: [
-      "Guantes y bata",
-      "Mascarilla quirúrgica simple",
-      "Respirador N95 (FFP2)",
-      "Solo lavado de manos"
-    ],
-    correct: 2
-  },
-  {
-    topic: "Aislamiento",
-    q: "La varicela requiere tipo de aislamiento:",
-    options: [
-      "Solo de contacto",
-      "Aéreo + contacto (combinado)",
-      "Solo por gotas",
-      "No requiere aislamiento en inmunocompetentes"
-    ],
-    correct: 1
-  },
-  {
-    topic: "Aislamiento",
-    q: "El aislamiento por varicela puede levantarse cuando:",
-    options: [
-      "Se inicia tratamiento con aciclovir",
-      "Todas las lesiones están en fase de costra",
-      "Han pasado 48 h de inicio del exantema",
-      "La fiebre desaparece"
-    ],
-    correct: 1
-  },
-  {
-    topic: "Aislamiento",
-    q: "El sarampión requiere aislamiento:",
-    options: ["De contacto", "Por gotas", "Aéreo", "No requiere en vacunados"],
-    correct: 2
-  },
-  {
-    topic: "Aislamiento",
-    q: "La distancia mínima a la que se considera que actúan las gotas respiratorias (droplets) es:",
-    options: ["30 cm", "1 metro", "3 metros", "5 metros"],
-    correct: 1
-  },
-  {
-    topic: "Aislamiento",
-    q: "El aislamiento PROTECTOR o INVERSO está indicado en:",
-    options: [
-      "Infecciones altamente contagiosas por vía aérea",
-      "Pacientes inmunocomprometidos graves (para protegerlos del entorno)",
-      "Tuberculosis pulmonar",
-      "Diarrea por Clostridium difficile"
-    ],
-    correct: 1
-  },
-  {
-    topic: "Aislamiento",
-    q: "Las precauciones ESTÁNDAR deben aplicarse:",
-    options: [
-      "Solo en pacientes con diagnóstico confirmado de infección",
-      "Con todos los pacientes, independientemente del diagnóstico",
-      "Solo en UCI",
-      "Solo ante sangre visible"
-    ],
-    correct: 1
-  },
-  {
-    topic: "Aislamiento",
-    q: "El virus sincicial respiratorio (VSR) en lactantes hospitalizados requiere aislamiento:",
-    options: [
-      "Aéreo",
-      "Gotas + contacto",
-      "Solo contacto",
-      "No requiere aislamiento"
-    ],
-    correct: 1
+    topic:"Aislamiento",
+    q:"El criterio para levantar el aislamiento en difteria (Corynebacterium diphtheriae) es:",
+    options:["48 h de iniciado el antibiótico adecuado (penicilina o eritromicina)","Resolución clínica completa (ausencia de pseudomembrana)","Dos cultivos de nasofaringe NEGATIVOS con ≥24 h de intervalo, obtenidos tras completar el tratamiento antibiótico","Alta médica independientemente de los cultivos"],
+    correct:2
   },
   // ── ESCROTO AGUDO ─────────────────────────────────────────────────────
   {
-    topic: "Escroto Agudo",
-    q: "La causa más frecuente de escroto agudo en el adolescente es:",
-    options: ["Epididimitis", "Torsión testicular", "Orquitis urliana", "Hidrocele comunicante"],
-    correct: 1
+    topic:"Escroto Agudo",
+    q:"En el Doppler color de torsión testicular completa, el hallazgo más característico es:",
+    options:["Aumento difuso del flujo intratesticular bilateral por inflamación reactiva","Hidrocele asociado con flujo vascular normal conservado","Engrosamiento de la pared escrotal con flujo periférico aumentado (epididimitis)","Ausencia de flujo vascular intratesticular en el lado afectado (aunque Doppler normal no descarta torsión)"],
+    correct:3
   },
   {
-    topic: "Escroto Agudo",
-    q: "El signo de Prehn positivo (alivio del dolor al elevar el testículo) sugiere:",
-    options: [
-      "Torsión testicular",
-      "Epididimitis / epididimo-orquitis",
-      "Torsión del hidátide",
-      "Hernia inguinal incarcerada"
-    ],
-    correct: 1
+    topic:"Escroto Agudo",
+    q:"La detorsión manual del testículo en urgencias (rotar hacia afuera, 'abriendo el libro') es:",
+    options:["Una medida de rescate temporal para mejorar perfusión mientras se prepara la cirugía; NO reemplaza la exploración quirúrgica urgente","Definitiva: si el dolor cede completamente, no se requiere cirugía","Contraindicada por riesgo de avulsión vascular","Solo válida en las primeras 2 horas del inicio del dolor"],
+    correct:0
   },
   {
-    topic: "Escroto Agudo",
-    q: "La ventana de tiempo en la que se puede salvar el testículo con mayor probabilidad (>90%) en torsión testicular es:",
-    options: ["1 hora", "4 horas", "6 horas", "12 horas"],
-    correct: 2
+    topic:"Escroto Agudo",
+    q:"La orquiepididimitis aguda en adolescente sexualmente activo es causada más frecuentemente por:",
+    options:["E. coli y gramnegativos entéricos","Chlamydia trachomatis y Neisseria gonorrhoeae","Staphylococcus aureus","Pseudomonas aeruginosa"],
+    correct:1
   },
   {
-    topic: "Escroto Agudo",
-    q: "En torsión testicular, el reflejo cremastérico generalmente está:",
-    options: ["Aumentado", "Normal", "Ausente", "Solo presente en lado contralateral"],
-    correct: 2
+    topic:"Escroto Agudo",
+    q:"La orquidopexia bilateral se realiza en toda torsión testicular porque la deformidad predisponente (bell clapper) es:",
+    options:["Unilateral en >90% de los casos; la orquidopexia contralateral es solo precaución","Bilateral en aproximadamente el 40–80% de los casos, con riesgo real de torsión contralateral","Un hallazgo incidental sin valor predictivo para el lado contralateral","Solo relevante en torsiones intravaginales pero no extravaginales"],
+    correct:2
+  },
+  // ── RCP ──────────────────────────────────────────────────────────────
+  {
+    topic:"RCP",
+    q:"En RCP pediátrica con UN SOLO reanimador entrenado, la relación compresión:ventilación es:",
+    options:["15:2","5:1","10:2","30:2 (igual que en adultos, para minimizar interrupciones)"],
+    correct:3
   },
   {
-    topic: "Escroto Agudo",
-    q: "La torsión del apéndice testicular (hidátide de Morgagni) es más frecuente en:",
-    options: [
-      "Neonatos (0-1 mes)",
-      "Lactantes (1-12 meses)",
-      "Prepúberes (7-14 años)",
-      "Adultos jóvenes (>18 años)"
-    ],
-    correct: 2
+    topic:"RCP",
+    q:"La dosis de adenosina IV para TSV pediátrica (primera dosis) es:",
+    options:["0.1 mg/kg en bolo rápido seguido de flush (máx 6 mg); segunda dosis 0.2 mg/kg si no revierte","0.05 mg/kg IV lento en 2 minutos","0.3 mg/kg en bolo único (máx 12 mg) desde la primera dosis","1 mg/kg en todas las edades"],
+    correct:0
   },
   {
-    topic: "Escroto Agudo",
-    q: "El 'signo del punto azul' en la piel escrotal es patognomónico de:",
-    options: [
-      "Torsión testicular",
-      "Torsión del apéndice testicular (hidátide)",
-      "Epididimitis bacteriana",
-      "Hidrocele a tensión"
-    ],
-    correct: 1
+    topic:"RCP",
+    q:"En la desfibrilación pediátrica (FV/TVSP), la energía recomendada según AHA 2020 es:",
+    options:["1 J/kg inicial; 2 J/kg en sucesivas","2 J/kg inicial; si no revierte ≥4 J/kg (máx 10 J/kg o dosis adulto)","4 J/kg siempre desde la primera descarga","200 J bifásico independiente del peso"],
+    correct:1
   },
   {
-    topic: "Escroto Agudo",
-    q: "Ante alta sospecha clínica de torsión testicular, la conducta correcta es:",
-    options: [
-      "Esperar el resultado de la ecografía Doppler para decidir",
-      "Exploración quirúrgica urgente sin demora",
-      "Administrar antibióticos y observar 24 h",
-      "Realizar urocultivo primero"
-    ],
-    correct: 1
-  },
-  // ── REANIMACIÓN CARDIOPULMONAR ─────────────────────────────────────────
-  {
-    topic: "RCP",
-    q: "La relación compresión : ventilación en RCP pediátrica con DOS reanimadores es:",
-    options: ["30:2", "15:2", "5:1", "10:2"],
-    correct: 1
+    topic:"RCP",
+    q:"El EtCO₂ que indica que la RCP tiene calidad ADECUADA y perfusión generada es:",
+    options:["≥5 mmHg","≥10 mmHg","≥20 mmHg (valores persistentemente <10–15 mmHg sugieren RCP inadecuada o pronóstico muy desfavorable)","≥40 mmHg"],
+    correct:2
   },
   {
-    topic: "RCP",
-    q: "La frecuencia de compresiones torácicas en RCP (adultos y niños) recomendada por las guías AHA/ERC 2020 es:",
-    options: ["60-80 / min", "80-100 / min", "100-120 / min", "120-140 / min"],
-    correct: 2
-  },
-  {
-    topic: "RCP",
-    q: "La dosis de adrenalina en paro cardiorrespiratorio pediátrico IV/IO es:",
-    options: ["0.001 mg/kg", "0.01 mg/kg", "0.1 mg/kg", "1 mg/kg"],
-    correct: 1
-  },
-  {
-    topic: "RCP",
-    q: "En fibrilación ventricular pediátrica, la dosis de desfibrilación es:",
-    options: ["1 J/kg", "2 J/kg (inicial)", "4 J/kg", "10 J/kg"],
-    correct: 1
+    topic:"RCP",
+    q:"En el algoritmo de RCP pediátrica en FV/TVSP, tras cada desfibrilación el primer fármaco que se administra es:",
+    options:["Amiodarona 5 mg/kg IV","Lidocaína 1 mg/kg IV","Vasopresina 0.5 UI/kg IV","Adrenalina 0.01 mg/kg IV (se repite cada 3–5 min)"],
+    correct:3
   },
   // ── ANAFILAXIA ────────────────────────────────────────────────────────
   {
-    topic: "Anafilaxia",
-    q: "El tratamiento de primera línea en anafilaxia es:",
-    options: [
-      "Antihistamínico H1 IV",
-      "Corticoide IV",
-      "Adrenalina IM (vasto externo del muslo)",
-      "Salbutamol nebulizado"
-    ],
-    correct: 2
+    topic:"Anafilaxia",
+    q:"La adrenalina en anafilaxia se prefiere en la cara anterolateral del muslo porque:",
+    options:["La absorción IM es más rápida que en deltoides o glúteo; en el glúteo hay riesgo de inyección en tejido adiposo con absorción errática","Es el único músculo con suficiente masa en lactantes","El deltoides está contraindicado por riesgo de lesión del nervio axilar","Produce menos dolor en la inyección que otros sitios"],
+    correct:0
   },
   {
-    topic: "Anafilaxia",
-    q: "La dosis de adrenalina IM en anafilaxia pediátrica es:",
-    options: [
-      "0.001 mg/kg",
-      "0.01 mg/kg (máx 0.5 mg)",
-      "0.1 mg/kg",
-      "0.5 mg fija independiente del peso"
-    ],
-    correct: 1
-  },
-  // ── VÍA AÉREA / OBSTRUCCIÓN ────────────────────────────────────────────
-  {
-    topic: "Vía Aérea",
-    q: "En croup (laringotraqueobronquitis viral), el tratamiento de elección en crisis moderada-grave es:",
-    options: [
-      "Antibióticos IM + fisioterapia",
-      "Adrenalina racémica / L-adrenalina nebulizada + dexametasona oral/IM",
-      "Antitusivos + antihistamínicos",
-      "Broncoscopia urgente"
-    ],
-    correct: 1
+    topic:"Anafilaxia",
+    q:"En anafilaxia refractaria a adrenalina IM en paciente con betabloqueo crónico, el fármaco de rescate específico es:",
+    options:["Adrenalina IV en megadosis (0.1 mg/kg)","Noradrenalina IV en infusión como vasopresor","Glucagón IV: 0.02–0.03 mg/kg (máx 1 mg), ya que su mecanismo es independiente de los receptores beta","Atropina IV 0.02 mg/kg"],
+    correct:2
   },
   {
-    topic: "Vía Aérea",
-    q: "La epiglotitis aguda se asocia clásicamente con:",
-    options: [
-      "Coxsackievirus",
-      "Haemophilus influenzae tipo b",
-      "Streptococcus pneumoniae",
-      "Staphylococcus aureus"
-    ],
-    correct: 1
+    topic:"Anafilaxia",
+    q:"Los antihistamínicos H1 en la anafilaxia aguda:",
+    options:["Son el tratamiento de primera línea si no hay adrenalina disponible inmediatamente","Reverten el broncoespasmo con eficacia similar a la adrenalina en la primera hora","NO tratan el broncoespasmo ni la hipotensión; son coadyuvantes de segunda línea que no deben demorar la adrenalina","Deben administrarse antes de la adrenalina para potenciar su efecto vasoconstrictor"],
+    correct:1
+  },
+  // ── VÍA AÉREA ─────────────────────────────────────────────────────────
+  {
+    topic:"Vía Aérea",
+    q:"El 'thumbprint sign' (signo del pulgar) en la radiografía lateral de cuello en epiglotitis aguda representa:",
+    options:["Calcificación del cartílago aritenoides en infección bacteriana","Ensanchamiento del espacio prevertebral por absceso retrofaríngeo","Engrosamiento subglótico bilateral ('signo de steeple' del croup)","La epiglotis edematosa, redondeada y engrosada que adopta morfología similar a un pulgar"],
+    correct:3
   },
   {
-    topic: "Vía Aérea",
-    q: "El cuerpo extraño en vía aérea en lactante se maneja con:",
-    options: [
-      "Heimlich abdominal",
-      "5 golpes en la espalda + 5 compresiones en el tórax",
-      "Laringoscopia inmediata sin maniobras",
-      "Barrido a ciegas en la boca"
-    ],
-    correct: 1
-  },
-  // ── ASMA ──────────────────────────────────────────────────────────────
-  {
-    topic: "Asma",
-    q: "La crisis asmática grave se trata con:",
-    options: [
-      "Solo broncodilatadores",
-      "Broncodilatadores inhalados + corticoides sistémicos + bromuro de ipratropio",
-      "Solo corticoides sistémicos",
-      "Antibióticos de primera línea"
-    ],
-    correct: 1
+    topic:"Vía Aérea",
+    q:"En croup viral MODERADO (estridor en reposo, sin dificultad grave), el tratamiento con mayor evidencia de eficacia es:",
+    options:["Dexametasona oral dosis única 0.15–0.6 mg/kg (efectiva en 1–2 h, reduce síntomas y hospitalización)","Amoxicilina oral 10 días ante sospecha de sobreinfección bacteriana","Cámara de vapor húmedo caliente (la evidencia es negativa o nula para esta intervención)","Adrenalina nebulizada de rutina en todos los pacientes con croup moderado"],
+    correct:0
   },
   {
-    topic: "Asma",
-    q: "El agente causal más frecuente de bronquiolitis en lactantes es:",
-    options: [
-      "Adenovirus",
-      "Virus Sincicial Respiratorio (VSR)",
-      "Influenza A",
-      "Rinovirus"
-    ],
-    correct: 1
+    topic:"Vía Aérea",
+    q:"La laringomalacia, causa más frecuente de estridor crónico en lactantes, se caracteriza por:",
+    options:["Estridor inspiratorio que empeora con el llanto y mejora en posición prona o con el cuello extendido","Estridor bifásico constante que no varía con la posición ni la alimentación","Estridor espiratorio predominante con tiraje subcostal severo desde el nacimiento","Ausencia de variación con la alimentación, estridor presente en vigilia y sueño por igual"],
+    correct:0
+  },
+  {
+    topic:"Vía Aérea",
+    q:"La traqueítis bacteriana (pseudomembranosa) se diferencia del croup viral porque:",
+    options:["Tiene inicio gradual en lactantes, sin fiebre ni toxicidad","Presenta fiebre alta con toxicidad sistémica, NO responde a adrenalina nebulizada y las membranas traqueales obstruyen la vía aérea","Se acompaña de exantema petequial generalizado","Afecta exclusivamente a niños mayores de 10 años"],
+    correct:1
+  },
+  // ── ASMA ─────────────────────────────────────────────────────────────
+  {
+    topic:"Asma",
+    q:"En la crisis asmática grave, la PaCO₂ que sube por encima de 42 mmHg (hipercapnia) indica:",
+    options:["Gravedad leve: el paciente hiperentila y tiene PaCO₂ baja habitualmente","Agotamiento de la musculatura respiratoria e inminente insuficiencia respiratoria (la normocapnia o hipercapnia indica que el paciente ya no puede mantener el trabajo respiratorio)","Que el tratamiento broncodilatador fue efectivo","Asma de control difícil crónico no relacionado con la crisis aguda"],
+    correct:1
+  },
+  {
+    topic:"Asma",
+    q:"En el status asmático con ventilación mecánica, la estrategia ventilatoria de elección es:",
+    options:["Volumen tidal alto y FR elevada para corregir rápidamente la hipercapnia","Hipercapnia permisiva, FR baja, tiempo espiratorio prolongado y PEEP extrínseca mínima para evitar atrapamiento aéreo","PEEP alta para mantener reclutamiento alveolar y evitar atelectasias","Ventilación de alta frecuencia oscilatoria (VAFO) como primera línea"],
+    correct:2
+  },
+  {
+    topic:"Asma",
+    q:"El PRAM score (Pediatric Respiratory Assessment Measure) de 9–12 puntos indica:",
+    options:["Crisis severa con indicación de observación hospitalaria / UCIP","Crisis leve: alta con broncodilatador a demanda","Crisis moderada: observación en urgencias 2–4 h","Asma fatal inminente sin tratamiento posible"],
+    correct:0
+  },
+  {
+    topic:"Asma",
+    q:"El bromuro de ipratropio en la crisis asmática grave actúa mediante:",
+    options:["Estimulación de los receptores beta-2 del músculo liso bronquial","Inhibición de la desgranulación de mastocitos y liberación de histamina","Bloqueo de los canales de calcio en el músculo liso bronquial","Bloqueo muscarínico M3: reduce el broncoespasmo colinérgico y la hipersecreción mucosa"],
+    correct:3
   },
   // ── MENINGITIS ────────────────────────────────────────────────────────
   {
-    topic: "Meningitis",
-    q: "La tríada clásica de meningitis bacteriana es:",
-    options: [
-      "Fiebre, cefalea, fotofobia",
-      "Fiebre, rigidez de nuca, alteración del sensorio",
-      "Vómitos, convulsiones, fiebre",
-      "Coma, hipotensión, bradicardia"
-    ],
-    correct: 1
+    topic:"Meningitis",
+    q:"La meningitis por Listeria monocytogenes afecta principalmente a:",
+    options:["Escolares de 6–12 años previamente sanos","Adolescentes con inmunodeficiencia primaria humoral","Pacientes con asplenia funcional o anatómica","Neonatos, embarazadas, mayores de 60 años e inmunocomprometidos"],
+    correct:3
   },
   {
-    topic: "Meningitis",
-    q: "El antibiótico de primera línea en meningitis bacteriana en niños >3 meses es:",
-    options: [
-      "Ampicilina + gentamicina",
-      "Ceftriaxona o cefotaxima IV",
-      "Vancomicina sola",
-      "Penicilina G"
-    ],
-    correct: 1
+    topic:"Meningitis",
+    q:"Si la punción lumbar está contraindicada ante sospecha de meningitis bacteriana, los antibióticos deben iniciarse:",
+    options:["De forma inmediata sin esperar la PL ni la TC (el retraso de antibióticos es más peligroso que diferir la PL)","Tras realizar la TC que descarte efecto de masa","Solo tras obtener 2 hemocultivos de sitios diferentes","Si la PCR supera 100 mg/L"],
+    correct:0
   },
   {
-    topic: "Meningitis",
-    q: "El uso de dexametasona como adyuvante en meningitis pediátrica tiene mayor evidencia de beneficio (reducción de hipoacusia) en:",
-    options: [
-      "Meningitis por N. meningitidis",
-      "Meningitis por H. influenzae tipo b",
-      "Meningitis viral",
-      "Meningitis neonatal"
-    ],
-    correct: 1
-  },
-  // ── DESHIDRATACIÓN / GASTROENTERITIS ──────────────────────────────────
-  {
-    topic: "Deshidratación",
-    q: "La deshidratación grave (>10% de peso) se repone inicialmente con:",
-    options: [
-      "Suero de rehidratación oral (SRO)",
-      "Bolo IV de 20 ml/kg de solución fisiológica o Ringer lactato",
-      "Goteo IV lento de 24 horas",
-      "Restricción hídrica"
-    ],
-    correct: 1
+    topic:"Meningitis",
+    q:"El LCR en meningitis tuberculosa clásicamente muestra:",
+    options:["PMN >1000/mm³, glucorraquia muy baja, proteínas >500 mg/dl, ADA normal","Linfocitos 100–500/mm³, hipoglucorraquia importante (glucosa LCR/glucosa sangre <0.3), proteínas muy altas, ADA elevada","LCR normal en las primeras 48 h invariablemente","PMN <50/mm³, glucorraquia normal, proteínas solo levemente elevadas"],
+    correct:1
   },
   {
-    topic: "Deshidratación",
-    q: "El tipo de deshidratación más frecuente en niños con gastroenteritis es:",
-    options: [
-      "Hipotónica (Na <130 mEq/L)",
-      "Isotónica (Na 130-150 mEq/L)",
-      "Hipertónica (Na >150 mEq/L)",
-      "Hipercalémica"
-    ],
-    correct: 1
-  },
-  // ── CETOACIDOSIS DIABÉTICA ─────────────────────────────────────────────
-  {
-    topic: "Cetoacidosis",
-    q: "La complicación más temida del tratamiento de la cetoacidosis diabética pediátrica es:",
-    options: [
-      "Hipoglucemia iatrogénica",
-      "Edema cerebral",
-      "Hipocalemia severa",
-      "Acidosis metabólica persistente"
-    ],
-    correct: 1
+    topic:"Meningitis",
+    q:"La encefalitis autoinmune anti-NMDAR en niñas y adolescentes se presenta típicamente con:",
+    options:["Inicio brusco de meningismo + fiebre + convulsiones focales en menos de 24 h","Parálisis facial periférica bilateral + cefalea + pleocitosis linfocitaria","Inicio subagudo con cambios conductuales/psiquiátricos + discinesias orofaciales + disminución de conciencia + disautonomía","Cuadriplejia espástica + oftalmoplejia + ataxia cerebelosa"],
+    correct:2
   },
   {
-    topic: "Cetoacidosis",
-    q: "La reposición de fluidos en la cetoacidosis diabética debe realizarse de forma:",
-    options: [
-      "Rápida (en 1-2 h) para corregir la acidosis",
-      "Lenta (en 48 h) para reducir el riesgo de edema cerebral",
-      "En bolo de 40 ml/kg inicial",
-      "Solo con dextrosa"
-    ],
-    correct: 1
+    topic:"Meningitis",
+    q:"La vancomicina se agrega empíricamente a la ceftriaxona en meningitis neumocócica porque:",
+    options:["La ceftriaxona no se absorbe bien por vía IV","El S. pneumoniae resistente (CMI ≥1 μg/mL) puede no alcanzar concentraciones bactericidas en LCR con cefalosporinas solas","La vancomicina es más activa contra L. monocytogenes","La meningitis neumocócica siempre cursa con septicemia que requiere vancomicina"],
+    correct:3
   },
-  // ── HIPOGLUCEMIA ──────────────────────────────────────────────────────
+  // ── DESHIDRATACIÓN ───────────────────────────────────────────────────
   {
-    topic: "Hipoglucemia",
-    q: "La dosis de glucosa IV para corregir hipoglucemia sintomática aguda en niños es:",
-    options: [
-      "0.1 g/kg (Dext 10%: 1 ml/kg)",
-      "0.25 g/kg (Dext 10%: 2.5 ml/kg)",
-      "0.5 g/kg",
-      "1 g/kg"
-    ],
-    correct: 1
-  },
-  // ── ABDOMEN AGUDO ─────────────────────────────────────────────────────
-  {
-    topic: "Abdomen Agudo",
-    q: "La causa más frecuente de obstrucción intestinal en lactantes de 3 a 12 meses es:",
-    options: [
-      "Hernia inguinal incarcerada",
-      "Invaginación intestinal",
-      "Vólvulo de sigmoides",
-      "Atresia intestinal"
-    ],
-    correct: 1
+    topic:"Deshidratación",
+    q:"La terapia de rehidratación oral (TRO) con SRO es eficaz incluso en gastroenteritis viral porque:",
+    options:["El cotransporte glucosa-Na en el enterocito permanece intacto en la enteritis viral, absorbiendo activamente glucosa + sodio + agua","El volumen oral administrado es siempre menor que el requerido por vía IV","Produce menor incidencia de vómitos que la vía IV","Solo funciona en deshidratación isotónica, no en hiper- ni hipotónica"],
+    correct:0
   },
   {
-    topic: "Abdomen Agudo",
-    q: "El tratamiento de primera línea de la invaginación intestinal sin signos de peritonitis es:",
-    options: [
-      "Cirugía de urgencia",
-      "Enema de reducción neumático o hidrostático guiado por imagen",
-      "Antibióticos IV + observación",
-      "Laparoscopía diagnóstica"
-    ],
-    correct: 1
-  },
-  // ── NEONATOLOGÍA / FIEBRE SIN FOCO ────────────────────────────────────
-  {
-    topic: "Neonatología",
-    q: "Ante un recién nacido (<28 días) con temperatura rectal ≥38 °C, la conducta correcta es:",
-    options: [
-      "Antitérmico y observación en domicilio",
-      "Hospitalización + hemocultivo + urocultivo + punción lumbar + antibióticos",
-      "Solo analítica de sangre en urgencias",
-      "Alta con control en 24-48 h"
-    ],
-    correct: 1
-  },
-  // ── CARDIOPATÍAS CONGÉNITAS ─────────────────────────────────────────────
-  {
-    topic: "Cardiopatías",
-    q: "La crisis hipercianótica ('tet spell') en tetralogía de Fallot se trata con:",
-    options: [
-      "Digoxina IV",
-      "Furosemida IV",
-      "Oxígeno + posición genupectoral + morfina + propranolol",
-      "Adrenalina en bolo IV"
-    ],
-    correct: 2
-  },
-  // ── TRAUMA ────────────────────────────────────────────────────────────
-  {
-    topic: "Trauma",
-    q: "En la evaluación primaria del politrauma pediátrico, la secuencia ABCDE comienza con:",
-    options: [
-      "B — Breathing (ventilación)",
-      "C — Circulation (circulación)",
-      "A — Airway con control cervical",
-      "D — Disability (neurológico)"
-    ],
-    correct: 2
+    topic:"Deshidratación",
+    q:"La pseudo-hiponatremia (hiponatremia artifactual) puede producirse por:",
+    options:["Uso excesivo de diuréticos tiazídicos en un lactante","SIADH en contexto de meningitis bacteriana","Hipertrigliceridemia severa o hiperproteinemia marcada que desplazan el agua del plasma (error de laboratorio en fotometría de llama)","Diabetes insípida central con polidipsia compensadora"],
+    correct:2
   },
   {
-    topic: "Trauma",
-    q: "El fluido de resucitación de primera línea en shock hemorrágico pediátrico post-trauma es:",
-    options: [
-      "Dextrosa al 5%",
-      "Cristaloide isotónico (SF 0.9% o Ringer lactato) 10-20 ml/kg",
-      "Albúmina al 5%",
-      "Plasma fresco congelado como primer bolo"
-    ],
-    correct: 1
+    topic:"Deshidratación",
+    q:"En el SIADH con Na sérico entre 125–135 mEq/L y paciente asintomático, el tratamiento de PRIMERA LÍNEA es:",
+    options:["Suero salino hipertónico 3% IV en infusión lenta","Restricción hídrica (600–800 ml/m²/día)","Furosemida IV 1 mg/kg","Fludrocortisona oral para aumentar la reabsorción de sodio"],
+    correct:1
+  },
+  // ── CETOACIDOSIS DIABÉTICA ───────────────────────────────────────────
+  {
+    topic:"Cetoacidosis",
+    q:"El anión gap (Na − [Cl + HCO₃]) en una cetoacidosis diabética establecida es habitualmente:",
+    options:["Normal (8–12 mEq/L) por acidosis hiperclorémica compensadora","Ligeramente elevado (13–16 mEq/L)","Moderadamente elevado (17–20 mEq/L)","Marcadamente elevado (>20 mEq/L) por acumulación de cetoácidos"],
+    correct:3
+  },
+  {
+    topic:"Cetoacidosis",
+    q:"La hipofosfatemia en CAD puede producir consecuencias graves. Sin embargo, la reposición rutinaria de fósforo:",
+    options:["No está recomendada salvo P <1 mg/dl o síntomas (hemólisis, debilidad muscular, insuficiencia respiratoria)","Debe iniciarse siempre junto con la insulina","Está contraindicada porque produce hipocalcemia","Se indica solo en CAD grave (pH <7.0)"],
+    correct:0
+  },
+  {
+    topic:"Cetoacidosis",
+    q:"El edema cerebral en CAD pediátrica ocurre típicamente:",
+    options:["Antes del tratamiento, causado directamente por la hiperosmolaridad inicial","Entre 4 y 12 h de iniciado el tratamiento; cefalea progresiva + bradicardia + alteración del sensorio son señales de alarma","Solo si se administró bicarbonato IV","Invariablemente en toda CAD grave con pH <7.0 independiente del tratamiento"],
+    correct:1
+  },
+  {
+    topic:"Cetoacidosis",
+    q:"Cuando la glucemia cae a <250 mg/dl durante el tratamiento de la CAD pero la acidosis persiste (pH <7.3, cetonas positivas), la conducta correcta es:",
+    options:["Detener la insulina hasta que la glucemia suba nuevamente a >300 mg/dl","Reducir la velocidad de insulina a la mitad y esperar","Agregar glucosa IV (dextrosa 5–10%) al fluido para mantener la glucemia sin reducir la insulina que cierra la cetogénesis","Aumentar la dosis de insulina al doble para cerrar más rápido la cetosis"],
+    correct:2
+  },
+  // ── NEONATOLOGÍA ─────────────────────────────────────────────────────
+  {
+    topic:"Neonatología",
+    q:"Los criterios de inclusión para hipotermia terapéutica neonatal son:",
+    options:["RN >34 semanas con APGAR 5 al 1 minuto como criterio único","Cualquier RN que requirió reanimación avanzada en sala de partos","RN ≥36 semanas + pH <7.0 o EB ≤−16 (o equivalente) + encefalopatía clínica moderada-grave + inicio dentro de las 6 h de vida","RN prematuro <32 semanas con hipoxia al nacer y GCS <8"],
+    correct:2
+  },
+  {
+    topic:"Neonatología",
+    q:"La indicación de surfactante exógeno en membrana hialina del prematuro se considera cuando:",
+    options:["FiO₂ >0.30 en CPAP para mantener SpO₂ adecuada (o FiO₂ >0.40 si intubado) según protocolo INSURE/LISA","Solo en RN <28 semanas de forma profiláctica universal antes de cualquier signo clínico","A las 4 h de vida si la Rx de tórax muestra patrón reticulogranular bilateral","Solo si el pH es <7.25 con pCO₂ >55 mmHg confirmado en gasometría arterial"],
+    correct:0
+  },
+  {
+    topic:"Neonatología",
+    q:"El ductus arterioso hemodinámicamente significativo en el prematuro se trata inicialmente con:",
+    options:["Furosemida IV para reducir la precarga pulmonar","Ibuprofeno IV u oral o indometacina IV (inhibidores de COX); paracetamol IV es alternativa; cirugía de ligado solo como rescate","Digoxina oral para mejorar la función ventricular sistólica","PGE1 IV para mantener el ductus permeable mientras se evalúa la cirugía"],
+    correct:1
+  },
+  {
+    topic:"Neonatología",
+    q:"La hipoglucemia neonatal transitoria en hijo de madre diabética ocurre porque:",
+    options:["La insulina materna atraviesa la placenta e inhibe directamente la gluconeogénesis hepática fetal","El páncreas fetal produce menos glucagón al nacer como respuesta al ayuno","La hiperglucemia materna crónica genera hiperinsulinismo fetal que persiste tras el nacimiento al cortarse el aporte de glucosa placentario","El glucógeno hepático neonatal es insuficiente por déficit enzimático en la glucogenólisis"],
+    correct:2
+  },
+  {
+    topic:"Neonatología",
+    q:"La incompatibilidad ABO (madre O, hijo A o B) difiere de la hemolítica por Rh porque:",
+    options:["Solo ocurre a partir del segundo hijo por sensibilización previa, igual que el Rh","El test de Coombs directo es siempre fuertemente positivo","Requiere invariablemente exanguinotransfusión","Puede ocurrir en el primer embarazo, el Coombs puede ser débilmente positivo o negativo, y suele ser menos severa que la por Rh"],
+    correct:3
+  },
+  // ── CARDIOPATÍAS CONGÉNITAS ──────────────────────────────────────────
+  {
+    topic:"Cardiopatías",
+    q:"El test de hiperoxia (FiO₂ 100% por 10–15 min) da resultado POSITIVO (PaO₂ >150 mmHg) en:",
+    options:["Enfermedades pulmonares (SDR, neumonía, HTPN sin cardiopatía estructural) donde la oxigenación mejora al aumentar la FiO₂","Transposición de grandes arterias (cianosis no mejora con O₂)","Atresia tricuspídea con CIA restrictiva","Hipoplasia del ventrículo izquierdo con ductus permeable"],
+    correct:0
+  },
+  {
+    topic:"Cardiopatías",
+    q:"En la coartación aórtica crítica neonatal, la presentación que distingue la forma crítica de la no crítica es:",
+    options:["Soplo sistólico interescapular audible desde las primeras horas","Shock con pulsos femorales abolidos o débiles, gradiente de PA entre MMSS y MMII, dependencia del ductus para la perfusión sistémica distal","Hipertensión arterial severa como primera manifestación al mes de vida","Localización posductal exclusiva con cianosis diferencial"],
+    correct:1
+  },
+  {
+    topic:"Cardiopatías",
+    q:"En la tetralogía de Fallot, el GRADO DE CIANOSIS está determinado principalmente por:",
+    options:["El tamaño de la comunicación interventricular","La magnitud del cabalgamiento aórtico (>50% clasifica como Fallot vs DSVD)","El grado de obstrucción al tracto de salida del VD (relación flujo pulmonar/sistémico)","El grado de hipertrofia ventricular derecha en la ecocardiografía"],
+    correct:2
+  },
+  {
+    topic:"Cardiopatías",
+    q:"El riesgo cardiovascular más relevante en el síndrome de Marfan pediátrico es:",
+    options:["Miocardiopatía dilatada con disfunción sistólica progresiva del VI","Estenosis aórtica valvular por válvula bicúspide asociada","Hipertensión pulmonar severa como complicación tardía","Dilatación y disección de la raíz aórtica (indicación quirúrgica: diámetro >5 cm o crecimiento >0.5 cm/año)"],
+    correct:3
+  },
+  // ── TRAUMA ───────────────────────────────────────────────────────────
+  {
+    topic:"Trauma",
+    q:"La limitación del uso de cristaloides en bolo en trauma pediátrico hemorrágico severo se basa en que:",
+    options:["Los cristaloides en exceso producen coagulopatía dilucional y acidosis dilucional que empeoran el pronóstico (damage control resuscitation: preferir hemoderivados en proporción 1:1:1)","Los cristaloides están absolutamente contraindicados en trauma pediátrico","Solo se usan coloides (albúmina 5%) en trauma pediátrico grave","El SF 0.9% es siempre preferible al Ringer en trauma por su mayor osmolaridad"],
+    correct:0
+  },
+  {
+    topic:"Trauma",
+    q:"El Pediatric Trauma Score (PTS) <8 indica:",
+    options:["Trauma leve sin necesidad de evaluación hospitalaria urgente","Trauma severo con indicación de traslado a centro de trauma pediátrico especializado","Riesgo moderado: observación en urgencias durante 6 h","Lesión incompatible con la vida (PTS <−2)"],
+    correct:1
+  },
+  {
+    topic:"Trauma",
+    q:"En trauma pediátrico con sospecha de lesión vascular abdominal e inestabilidad hemodinámica PERSISTENTE a pesar de reanimación, la prioridad es:",
+    options:["TC abdominal urgente para planificar la estrategia quirúrgica","Arteriografía diagnóstica inmediata para localizar el sangrado","Cirugía de control de daños (laparotomía de urgencia) sin demora para detener la hemorragia","Resucitar con 60 ml/kg de cristaloides antes de considerar cirugía"],
+    correct:2
+  },
+  // ── INFECCIONES PEDIÁTRICAS ───────────────────────────────────────────
+  {
+    topic:"Infecciones",
+    q:"El diagnóstico de síndrome de Kawasaki INCOMPLETO (atípico) con <3 criterios clínicos se apoya en laboratorio. Los hallazgos que indican ecocardiograma son:",
+    options:["PCR <30 mg/L + leucocitosis >15.000/mm³ sin fiebre","Hiponatremia + trombocitopenia con fiebre >7 días","Neutrofilia >80% + linfocitos atípicos en frotis","PCR ≥30 mg/L o VSG ≥40 mm/h + ≥3 de: albúmina ≤3 g/dl, anemia, plaquetas ≥450.000 (tras día 7), ALT elevada, leucocitos ≥15.000, piuria estéril"],
+    correct:3
+  },
+  {
+    topic:"Infecciones",
+    q:"La fiebre ≥38.5°C en un niño esplenectomizado (o con asplenia funcional por anemia de células falciformes) es una EMERGENCIA porque:",
+    options:["Existe riesgo de sepsis fulminante por bacterias encapsuladas (S. pneumoniae, H. influenzae, N. meningitidis) con mortalidad >50% sin antibióticos inmediatos (OPSI: Overwhelming Post-Splenectomy Infection)","Solo es peligrosa si se identifica foco bacteriano evidente al examen físico","El riesgo infeccioso es similar al de niños sin asplenia si están correctamente vacunados","La urgencia aplica solo si el niño no recibió profilaxis con penicilina oral"],
+    correct:0
   }
 ];
 
